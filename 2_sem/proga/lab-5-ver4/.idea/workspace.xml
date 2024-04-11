@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="76feae23-4317-4ea9-aa74-bb27d184e355" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../lab-5-ver-2/lab-5-ver-2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/lab_5ver_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/lab_5ver_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example" beforeDir="false" afterPath="$PROJECT_DIR$/example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/ConsoleColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/ConsoleColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/Add.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/Clear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/Clear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/Executable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/Executable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/ExecuteScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/ExecuteScript.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/Exit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/FilterByName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/FilterByName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/GroupByDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/GroupByDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/Help.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/History.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/Info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/PrintPassportID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/PrintPassportID.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/RemoveByID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/RemoveByID.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/RemoveElements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/RemoveElements.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/RemoveHead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/RemoveHead.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/Show.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/command/commands/UpdateID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/command/commands/UpdateID.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/data/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/data/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/data/forms/CoordinatesForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/data/forms/CoordinatesForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/data/forms/Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/data/forms/Form.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/data/forms/LocationForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/data/forms/LocationForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/data/forms/PersonForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/data/forms/PersonForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/managers/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/managers/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/managers/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/managers/CommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/managers/ExecuteFileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/managers/ExecuteFileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/managers/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/managers/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/examples/managers/RuntimeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/examples/managers/RuntimeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/.idea/artifacts/lab_5ver_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/org.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/Console.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/ConsoleColor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/ExecuteFileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/Printable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/UserInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/Add.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/Clear.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/Command.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/Executable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/ExecuteScript.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/Exit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/FilterByName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/GroupByDate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/Help.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/History.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/Info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/PrintPassportID.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/RemoveByID.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/RemoveElements.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/RemoveHead.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/Save.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/Show.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/command/commands/UpdateID.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/data/Color.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/data/Coordinates.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/data/Country.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/data/Location.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/data/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/data/Validator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/data/forms/CoordinatesForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/data/forms/Form.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/data/forms/LocationForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/data/forms/PersonForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/exceptions/CommandRuntimeError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/exceptions/EmptyCollectionException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/exceptions/EmptyFileException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/exceptions/ExceptionInFileMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/exceptions/ExitObliged.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/exceptions/InvalidForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/exceptions/NoSuchCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/managers/CollectionManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/managers/CommandManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/managers/FileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/managers/InputManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/managers/RuntimeManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/java/org/managers/ScannerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-5ver-3/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab_5/lab_5.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/org.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/Console.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/ConsoleColor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/ExecuteFileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/Printable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/UserInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/Add.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/Clear.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/Command.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/Executable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/ExecuteScript.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/Exit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/FilterByName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/GroupByDate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/Help.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/History.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/Info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/PrintPassportID.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/RemoveByID.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/RemoveElements.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/RemoveHead.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/Save.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/Show.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/command/commands/UpdateID.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/data/Color.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/data/Coordinates.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/data/Country.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/data/Location.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/data/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/data/Validator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/data/forms/CoordinatesForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/data/forms/Form.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/data/forms/LocationForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/data/forms/PersonForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/exceptions/CommandRuntimeError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/exceptions/EmptyCollectionException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/exceptions/EmptyFileException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/exceptions/ExceptionInFileMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/exceptions/ExitObliged.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/exceptions/InvalidForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/exceptions/NoSuchCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/managers/CollectionManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/managers/CommandManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/managers/FileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/managers/InputManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/managers/RuntimeManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/proga/lab-5ver-3/src/main/java/org/managers/ScannerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/org.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/Console.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/ConsoleColor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/ExecuteFileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/Printable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/UserInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/Add.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/Clear.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/Command.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/Executable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/ExecuteScript.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/Exit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/FilterByName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/GroupByDate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/Help.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/History.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/Info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/PrintPassportID.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/RemoveByID.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/RemoveElements.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/RemoveHead.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/Save.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/Show.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/command/commands/UpdateID.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/data/Color.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/data/Coordinates.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/data/Country.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/data/Location.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/data/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/data/Validator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/data/forms/CoordinatesForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/data/forms/Form.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/data/forms/LocationForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/data/forms/PersonForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/exceptions/CommandRuntimeError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/exceptions/EmptyCollectionException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/exceptions/EmptyFileException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/exceptions/ExceptionInFileMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/exceptions/ExitObliged.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/exceptions/InvalidForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/exceptions/NoSuchCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/managers/CollectionManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/managers/CommandManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/managers/FileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/managers/InputManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/managers/RuntimeManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2_сем/прога/lab-5ver-3/src/main/java/org/managers/ScannerManager.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2eifEOI3f07Fl1dVt40w9Rl0ON0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/rievl/Desktop/study/2_sem/proga/lab-5-ver-5",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rievl\Desktop\study\2_sem\proga\lab-5-ver4" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rievl\Desktop\study\2_sem\proga\lab-5-ver4\src\main\java\org" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.main">
+    <configuration name="main" type="Application" factoryName="Application">
+      <envs>
+        <env name="path" value="C:\Users\rievl\Desktop\study\2_sem\proga\lab-5-ver4\example" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="examples.Main" />
+      <module name="lab-5ver-3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="lab-5-ver4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="lab-5-ver4" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="lab-5ver-3 [clean,package]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.main" />
+      <item itemvalue="Maven.lab-5ver-3 [clean,package]" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="76feae23-4317-4ea9-aa74-bb27d184e355" name="Changes" comment="" />
+      <created>1712392210177</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712392210177</updated>
+      <workItem from="1712392211761" duration="69000" />
+      <workItem from="1712392391110" duration="103000" />
+      <workItem from="1712392511858" duration="127000" />
+      <workItem from="1712392655821" duration="4554000" />
+      <workItem from="1712397729713" duration="2580000" />
+      <workItem from="1712400545223" duration="549000" />
+      <workItem from="1712559433041" duration="661000" />
+      <workItem from="1712574641458" duration="2000" />
+      <workItem from="1712773182508" duration="1786000" />
+      <workItem from="1712821759640" duration="1508000" />
+      <workItem from="1712823281772" duration="2149000" />
+      <workItem from="1712860184929" duration="5192000" />
+      <workItem from="1712865756442" duration="82000" />
+      <workItem from="1712865961468" duration="1893000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
