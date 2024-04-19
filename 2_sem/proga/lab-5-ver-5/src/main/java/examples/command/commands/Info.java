@@ -1,31 +1,29 @@
 package examples.command.commands;
 
-import examples.command.Console;
+
 import examples.command.ConsoleColor;
+import examples.command.Printable;
 import examples.managers.CollectionManager;
 
 /**
  * Prints information about the collection (type, initialization date, number of elements, etc.) to the standard output stream.
  */
-public class Info extends Command
-{
-    private Console console;
+public class Info extends Command {
+    private Printable console;
     private CollectionManager collectionManager;
-    public Info( Console console, CollectionManager collectionManager)
-    {
+
+    public Info(Printable console, CollectionManager collectionManager) {
         super("info", ": вывести в стандартный поток вывода информацию о коллекции");
         this.console = console;
         this.collectionManager = collectionManager;
     }
 
     @Override
-    public void execute(String a) throws IllegalArgumentException
-    {
-        if(!a.isBlank()) throw new IllegalArgumentException();
+    public void execute(String a) {
         String lastInitDate = (collectionManager.getLastInitDate() == null)
                 ? "Коллекция не инициализирована"
                 : collectionManager.getLastInitDate().toString();
-        String lastSaveDate =(collectionManager.getLastSaveDate() ==null)
+        String lastSaveDate = (collectionManager.getLastSaveDate() == null)
                 ? "Коллекция не инициализирована"
                 : collectionManager.getLastSaveDate().toString();
         StringBuilder stringBuilder = new StringBuilder();

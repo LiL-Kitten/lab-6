@@ -2,12 +2,10 @@ package examples.managers;
 
 import java.util.Scanner;
 
-public class ScannerManager
-{
+public class ScannerManager {
     Scanner input = new Scanner(System.in);
 
-    public  Scanner getInput()
-    {
+    public Scanner getInput() {
         return input;
     }
 

@@ -6,18 +6,15 @@ import examples.exceptions.ExitObliged;
 /**
  * Ending the program (without saving to a file)
  */
-public class Exit extends Command
-{
+public class Exit extends Command {
     Console console = new Console();
-    public Exit()
-    {
+
+    public Exit() {
         super("exit", ": Завершение программы!");
     }
 
     @Override
-    public void execute(String a) throws ExitObliged
-    {
-        console.printError("Дотвидания ((");
-        throw new ExitObliged();
+    public void execute(String a) throws ExitObliged {
+        throw new ExitObliged("Дотвидания =(");
     }
 }

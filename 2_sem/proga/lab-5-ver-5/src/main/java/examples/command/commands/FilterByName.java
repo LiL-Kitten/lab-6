@@ -1,6 +1,6 @@
 package examples.command.commands;
 
-import examples.command.Console;
+import examples.command.Printable;
 import examples.data.Person;
 import examples.exceptions.CommandRuntimeError;
 import examples.exceptions.ExitObliged;
@@ -12,28 +12,23 @@ import java.util.stream.Collectors;
 /**
  * prints all elements and values of the name field that begin with the given substring
  */
-public class FilterByName extends Command
-{
-    private Console console;
+public class FilterByName extends Command {
+    private Printable console;
     private CollectionManager collectionManager;
-    public FilterByName(Console console, CollectionManager collectionManager)
-    {
-        super("filter_by_name",": вывести элементы, значение  поля name которых начинается с заданной подстроки" );
+
+    public FilterByName(Printable console, CollectionManager collectionManager) {
+        super("filter_by_name", ": вывести элементы, значение  поля name которых начинается с заданной подстроки");
         this.console = console;
         this.collectionManager = collectionManager;
     }
 
     @Override
-    public void execute(String a) throws IllegalArgumentException, ExitObliged, CommandRuntimeError
-    {
-        if (collectionManager.getCollection().isEmpty())
-        {
-            console.printError("Коллекци пустая");
-            throw new CommandRuntimeError();
+    public void execute(String a) throws IllegalArgumentException, ExitObliged, CommandRuntimeError {
+        if (collectionManager.getCollection().isEmpty()) {
+            throw new CommandRuntimeError("Коллекци пустая =(");
         }
 
-        if (a.isEmpty())
-        {
+        if (a.isEmpty()) {
             console.printError("Не указана подстрока для фильтрации.");
             return;
         }
@@ -44,8 +39,7 @@ public class FilterByName extends Command
                 .collect(Collectors.toList());
 
         console.println("Результат фильтрации:");
-        for (Person person : filteredPersons)
-        {
+        for (Person person : filteredPersons) {
             console.println(String.valueOf(person));
         }
     }

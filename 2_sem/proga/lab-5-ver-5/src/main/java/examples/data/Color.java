@@ -17,14 +17,12 @@ public enum Color {
         return colorCode;
     }
 
-    public static String colors()
-    {
+    public static String colors() {
         StringBuilder nameList = new StringBuilder();
-        for (var form : values())
-        {
+        for (var form : values()) {
             nameList.append(form.getColorCode()).append(form.name()).append("\u001B[0m").append("   ");
         }
-        return nameList.toString()+"\n";
+        return nameList.toString() + "\n";
 
     }
 

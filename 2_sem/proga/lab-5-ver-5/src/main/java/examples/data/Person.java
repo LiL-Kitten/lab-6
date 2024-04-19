@@ -2,25 +2,22 @@ package examples.data;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import examples.command.ConsoleColor;
-import examples.managers.CollectionManager;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.Objects;
 
 
 @FunctionalInterface
-interface CoordinatesRange<T,S>
-{
-    double getDistanceFromCentre(T x, S y);
+interface CoordinatesRange<T, S> {
+    double getDistanceFromCentre(Double x, long y);
 }
 
 @XStreamAlias("person")
 public class Person implements Validator, Comparable<Person> {
-   @XStreamAlias("id")
-   @NotNull
+    @XStreamAlias("id")
+    @NotNull
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     @XStreamAlias("name")
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -54,6 +51,10 @@ public class Person implements Validator, Comparable<Person> {
         this.location = location;
     }
 
+    public Person(Long id) {
+        this.id = id;
+    }
+
     private static long incID() {
         return nextID++;
     }
@@ -68,8 +69,8 @@ public class Person implements Validator, Comparable<Person> {
     public Long getID() {
         return id;
     }
-    public void setID(long newId)
-    {
+
+    public void setID(long newId) {
         this.id = newId;
     }
 
@@ -179,19 +180,19 @@ public class Person implements Validator, Comparable<Person> {
         return (this.location != person.location);
     }
 
-    @Override
-    public int compareTo(Person o) {
-        if (Objects.isNull(o) && o.location != this.location) return 1;
+
+    public int compareTo(Location o) {
+        if (Objects.isNull(o) && o != this.location) return 1;
         CoordinatesRange<Integer, Double> calc = (x, y) -> (double) Math.sqrt(x * x + y * y);
         return Double.compare(
-                calc.getDistanceFromCentre(this.getCoordinates().getX(), this.getCoordinates().getY()),
-                calc.getDistanceFromCentre(o.getCoordinates().getX(), o.getCoordinates().getY()));
+                calc.getDistanceFromCentre(this.getLocation().getX(), this.getLocation().getY()),
+                calc.getDistanceFromCentre(o.getX(), o.getY()));
     }
 
     @Override
     public String toString() {
 
-                return "Person \n" +
+        return "Person \n" +
                 ConsoleColor.toColor("id = ", ConsoleColor.CYAN) + id + '\n' +
                 ConsoleColor.toColor("name = ", ConsoleColor.CYAN) + name + '\n' +
                 ConsoleColor.toColor("coordinates = ", ConsoleColor.CYAN) + coordinates + '\n' +
@@ -203,5 +204,8 @@ public class Person implements Validator, Comparable<Person> {
                 ConsoleColor.toColor("location = ", ConsoleColor.CYAN) + location + '\n';
     }
 
-
+    @Override
+    public int compareTo(Person o) {
+        return 0;
+    }
 }

@@ -3,6 +3,7 @@ package examples.command.commands;
 import examples.exceptions.CommandRuntimeError;
 import examples.exceptions.ExitObliged;
 
+
 import java.util.Iterator;
 import java.util.Objects;
 
@@ -10,19 +11,18 @@ import java.util.Objects;
  * Class required to work with all teams
  * And here the execute method is inherited, which is abstract and is implemented differently in each command
  */
-public abstract class Command implements Executable
-{
+public abstract class Command implements Executable {
 
     private final String name;
     private final String description;
 
     /**
      * The constructor is necessary to add a description and name for the command
-     * @param name command name
+     *
+     * @param name        command name
      * @param description description of the command
      */
-    public Command(String name, String description)
-    {
+    public Command(String name, String description) {
         this.name = name;
         this.description = description;
     }
@@ -36,8 +36,7 @@ public abstract class Command implements Executable
     }
 
     @Override
-    public boolean equals(Object o)
-    {
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Command command = (Command) o;
@@ -56,7 +55,8 @@ public abstract class Command implements Executable
     }
 
     @Override
-    public abstract void execute(String a) throws ExitObliged, CommandRuntimeError;
+    public abstract void execute(String a) throws ExitObliged, CommandRuntimeError, IllegalArgumentException;
+
     protected Iterator<Command> iterator() {
         return null;
     }

@@ -6,6 +6,7 @@ package examples.command;
 public class Console implements Printable
 {
 
+
     /**
      * @param fileMode necessary to indicate the mode of working with the file
      */
@@ -13,7 +14,8 @@ public class Console implements Printable
 
     public static boolean isFileMode(){return fileMode;}
 
-    public static void setFileMode(boolean fileMode) {Console.fileMode = fileMode;}
+    public static void setFileMode(boolean fileMode) {
+        Console.fileMode = fileMode;}
 
     @Override
     public void println(String a) {System.out.println(a);}

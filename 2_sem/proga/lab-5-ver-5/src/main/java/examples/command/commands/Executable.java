@@ -6,7 +6,6 @@ import examples.exceptions.ExitObliged;
 /**
  * Interface for executing any commands
  */
-public interface Executable
-{
-    public void execute(String a) throws IllegalArgumentException, ExitObliged, CommandRuntimeError;
+public interface Executable {
+    public void execute(String a) throws ExitObliged, CommandRuntimeError, IllegalArgumentException;
 }

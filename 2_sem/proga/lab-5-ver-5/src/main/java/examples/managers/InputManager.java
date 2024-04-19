@@ -6,14 +6,12 @@ import examples.command.UserInput;
 import java.util.Scanner;
 
 
-public class InputManager implements UserInput
-{
+public class InputManager implements UserInput {
     private Scanner scanner = new Scanner(System.in);
     private Printable console;
 
     @Override
-    public  String next()
-    {
+    public String next() {
         String input = scanner.nextLine().trim();
         return input;
     }

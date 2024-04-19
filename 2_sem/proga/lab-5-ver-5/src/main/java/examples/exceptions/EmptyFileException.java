@@ -1,4 +1,15 @@
 package examples.exceptions;
 
-public class EmptyFileException extends Exception{
+public class EmptyFileException extends Exception {
+    private String message;
+
+    public EmptyFileException(String message) {
+        this.message = message;
+    }
+
+    @Override
+    public String getMessage()
+    {
+        return message;
+    }
 }

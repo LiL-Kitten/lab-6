@@ -6,14 +6,14 @@ import examples.data.Person;
 import java.time.LocalDate;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * class for working with the Person collection
  */
 
 
-public class CollectionManager
-{
+public class CollectionManager {
 
     /**
      * @param idCounter counter id
@@ -37,14 +37,15 @@ public class CollectionManager
         lastInitDate = LocalDate.now();
         lastSaveDate = LocalDate.now();
     }
+
     private LocalDate date;
 
     /**
      * adding a person object to the collection (also indicating its creation date)
+     *
      * @param person
      */
-    public void addElement(Person person)
-    {
+    public void addElement(Person person) {
         person.setID(getCurrentId());
         person.setCreationDate(LocalDate.now());
         this.collection.add(person);
@@ -52,6 +53,7 @@ public class CollectionManager
 
     /**
      * method to set the current id of the person object in the collection
+     *
      * @param idCounter
      */
     public static void setIdCounter(long idCounter) {
@@ -60,6 +62,7 @@ public class CollectionManager
 
     /**
      * method for checking the presence of an element with a given id
+     *
      * @param id
      * @return boolean variable
      */
@@ -84,20 +87,18 @@ public class CollectionManager
 
     /**
      * removing items from a collection
+     *
      * @param id
      */
     public void removeByID(long id) {
-        for (Iterator<Person> iterator = collection.iterator(); iterator.hasNext(); ) {
-            Person person = iterator.next();
-            if (person.getID() == id) {
-                iterator.remove();
-                break;
-            }
-        }
+        collection = collection.stream()
+                .filter(person -> person.getID() != id)
+                .collect(Collectors.toCollection(LinkedList::new));
     }
 
     /**
      * removes all Person objects from the collection
+     *
      * @param elements a variable through which a stream of Person objects is passed
      */
     public void removeElements(Collection<Person> elements) {
@@ -106,6 +107,7 @@ public class CollectionManager
 
     /**
      * returns the first element of the collection
+     *
      * @return Person information
      */
     public Person getFirst() {
@@ -117,21 +119,21 @@ public class CollectionManager
 
     /**
      * method to remove the first element from a collection
+     *
      * @return displays data about a remote object
      */
     public Person removeFirst() {
         if (collection.isEmpty()) {
             throw new NoSuchElementException("Collection is empty");
         }
-        Iterator<Person> iterator = collection.iterator();
-        Person firstElement = iterator.next();
-        iterator.remove();
-        return firstElement;
+        collection.removeFirst();
+        return collection.getFirst();
     }
 
     /**
      * iterates through the collection, finds the id of the element and replaces it with a new one
-     * @param id old id (long)
+     *
+     * @param id    old id (long)
      * @param newId new id (long)
      */
     public void updateId(long id, long newId) {
@@ -145,15 +147,16 @@ public class CollectionManager
 
     /**
      * method for returning a collection with a Person generic for further interaction with the collection
+     *
      * @return Collection/<Person>
      */
-    public Collection<Person> getCollection()
-    {
+    public Collection<Person> getCollection() {
         return collection;
     }
 
     /**
      * method returns collection size
+     *
      * @return size, type collection Integer
      */
     public Integer collectionSize() {
@@ -162,6 +165,7 @@ public class CollectionManager
 
     /**
      * method to return the collection type
+     *
      * @return String
      */
     public String collectionType() {
@@ -170,6 +174,7 @@ public class CollectionManager
 
     /**
      * method to get the date the collection was last initialized
+     *
      * @return LocalDate
      */
     public LocalDate getLastInitDate() {
@@ -178,6 +183,7 @@ public class CollectionManager
 
     /**
      * method to return the last saved date
+     *
      * @return LocalDate
      */
     public LocalDate getLastSaveDate() {
@@ -187,8 +193,7 @@ public class CollectionManager
     /**
      * method for clearing the collection completely
      */
-    public void clear()
-    {
+    public void clear() {
         collection.clear();
     }
 

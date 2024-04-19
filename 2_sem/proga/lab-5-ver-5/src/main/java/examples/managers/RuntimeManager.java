@@ -1,7 +1,6 @@
 package examples.managers;
 
 import examples.command.Printable;
-import examples.command.Console;
 import examples.command.ConsoleColor;
 import examples.exceptions.CommandRuntimeError;
 import examples.exceptions.ExitObliged;
@@ -19,7 +18,7 @@ public class RuntimeManager {
     private static InputManager input = new InputManager();
     private static CommandManager commandManager;
 
-    public RuntimeManager(Console console, CommandManager commandManager) {
+    public RuntimeManager(Printable console, CommandManager commandManager) {
         this.console = console;
         this.commandManager = commandManager;
     }
@@ -30,7 +29,7 @@ public class RuntimeManager {
         while (true) {
             try {
 
-                if (!userScanner.hasNext()) throw new ExitObliged();
+                if (!userScanner.hasNext()) throw new ExitObliged("экстренный выход из программы!");
                 String userCommand = userScanner.nextLine().trim() + " ";
                 String[] cmd = userCommand.split(" ", 2);
                 if (cmd.length > 1) {
@@ -42,9 +41,8 @@ public class RuntimeManager {
                 console.printError("Пользовательский ввод не обнаружен!");
             } catch (NoSuchCommand noSuchCommand) {
                 console.printError("Такой команды нет в списке");
-                console.println(ConsoleColor.BLUE + "Введите "+ConsoleColor.GREEN+"help"+ ConsoleColor.BLUE+" для того чтобы вывести список команд");
-            } catch (IllegalArgumentException e) {
-                console.printError("Введены неправильные аргументы команды");
+                console.println(ConsoleColor.BLUE + "Введите " + ConsoleColor.GREEN + "help" + ConsoleColor.BLUE + " для того чтобы вывести список команд");
+
             } catch (CommandRuntimeError e) {
                 console.printError("Ошибка при исполнении команды");
             } catch (ExitObliged exitObliged) {

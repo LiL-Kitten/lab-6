@@ -1,28 +1,43 @@
 package examples.data;
 
-public class Location implements Validator
-{
+public class Location implements Validator {
     private Double x;
     private long y;
     private String name;
-    public Location(Double x, long y, String name)
-    {
+
+    public Location(Double x, long y, String name) {
         this.x = x;
         this.y = y;
         this.name = name;
     }
 
-    public Double getX(){return x;}
-    public void setX(Double x){this.x=x;}
-    public  long getY(){return y;}
-    public void setY(long y){this.y=y;}
+    public Double getX() {
+        return x;
+    }
 
-    public String getName(){return name;}
-    public void setName(String name){this.name=name;}
+    public void setX(Double x) {
+        this.x = x;
+    }
+
+    public long getY() {
+        return y;
+    }
+
+    public void setY(long y) {
+        this.y = y;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
-    public boolean validate()
-    {
-        if(this.x == null) return false;
+    public boolean validate() {
+        if (this.x == null) return false;
         return !(this.name == null);
     }
 
@@ -39,7 +54,7 @@ public class Location implements Validator
 
     @Override
     public String toString() {
-        return "("+
+        return "(" +
                 "x=" + x +
                 ", y=" + y +
                 ", name='" + name + '\'' +
