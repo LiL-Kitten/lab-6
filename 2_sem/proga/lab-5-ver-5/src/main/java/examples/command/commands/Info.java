@@ -21,10 +21,10 @@ public class Info extends Command {
     @Override
     public void execute(String a) {
         String lastInitDate = (collectionManager.getLastInitDate() == null)
-                ? "Коллекция не инициализирована"
+                ? "Коллекция не инициализирована "
                 : collectionManager.getLastInitDate().toString();
         String lastSaveDate = (collectionManager.getLastSaveDate() == null)
-                ? "Коллекция не инициализирована"
+                ? "Коллекция не сохранялась ранее"
                 : collectionManager.getLastSaveDate().toString();
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Сведения о коллекции")

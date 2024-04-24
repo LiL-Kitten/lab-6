@@ -1,5 +1,6 @@
 package examples.managers;
 
+import com.thoughtworks.xstream.io.StreamException;
 import examples.command.Printable;
 import examples.command.ConsoleColor;
 import examples.exceptions.CommandRuntimeError;
@@ -14,22 +15,22 @@ import java.util.Scanner;
  */
 public class RuntimeManager {
     private static Printable console;
-
     private static InputManager input = new InputManager();
     private static CommandManager commandManager;
+    private static FileManager fileManager;
 
-    public RuntimeManager(Printable console, CommandManager commandManager) {
+    public RuntimeManager(Printable console) {
         this.console = console;
-        this.commandManager = commandManager;
     }
 
-
     public void interactiveMode() {
+        CollectionManager collectionManager = new CollectionManager();
+        fileManager = new FileManager(console, collectionManager);
+        commandManager = new CommandManager(console, collectionManager, fileManager);
+
         Scanner userScanner = new ScannerManager().getInput();
         while (true) {
             try {
-
-                if (!userScanner.hasNext()) throw new ExitObliged("экстренный выход из программы!");
                 String userCommand = userScanner.nextLine().trim() + " ";
                 String[] cmd = userCommand.split(" ", 2);
                 if (cmd.length > 1) {
@@ -56,4 +57,3 @@ public class RuntimeManager {
         commandManager.execute(userCommand[0], userCommand[1]);
     }
 }
-

@@ -32,20 +32,21 @@ public class RemoveElements extends Command {
         }
 
         try {
-            console.println(ConsoleColor.toColor("Введите данные объекта Location, для того чтобы определить" +
-                    " центр и удалить элементы которые удалены от центра", ConsoleColor.CYAN));
-            Location location = new LocationForm(console).build();
-            Collection<Person> what_need_remove = collectionManager.getCollection().stream()
-                    .filter(Objects::nonNull)
-                    .filter(person -> person.compareTo(location) <= -1)
-                    .toList();
 
             if (collectionManager.getCollection() == null || collectionManager.getCollection().isEmpty()) {
                 console.printError("Невозномно выполнить удаление данного элемента т.к\nКоллекция пустая");
                 return;
             }
 
-            collectionManager.removeElements(what_need_remove);
+            console.println(ConsoleColor.toColor("Введите данные объекта Location, для того чтобы определить" +
+                    " центр и удалить элементы которые удалены от центра", ConsoleColor.CYAN));
+            Location location = new LocationForm(console).build();
+            Collection<Person> whatNeedRemove = collectionManager.getCollection().stream()
+                    .filter(Objects::nonNull)
+                    .filter(person -> person.compareTo(location) <= -1)
+                    .toList();
+
+            collectionManager.removeElements(whatNeedRemove);
             console.println(ConsoleColor.toColor("Из коллекции удалены элемены, меньше заданного", ConsoleColor.YELLOW));
         } catch (NoElement e) {
             console.printError("В коллекции нет элементов");

@@ -2,6 +2,7 @@ package examples.command.commands;
 
 import examples.command.ConsoleColor;
 import examples.command.Printable;
+import examples.exceptions.NoSuchId;
 import examples.managers.CollectionManager;
 
 
@@ -21,10 +22,7 @@ public class UpdateID extends Command {
     }
 
     @Override
-    public void execute(String args) {
-        class NoSuchId extends RuntimeException {
-        }
-
+    public void execute(String args) throws NoSuchId {
         try {
             long id = Long.parseLong(args.trim());
             if (!collectionManager.checkID(id)) throw new NoSuchId();

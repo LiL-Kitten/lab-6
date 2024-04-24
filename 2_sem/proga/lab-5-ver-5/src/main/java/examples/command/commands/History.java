@@ -23,8 +23,16 @@ public class History extends Command {
     @Override
     public void execute(String a) {
         List<String> history = commandManager.getCommandHistory();
+
+        history.stream()
+                .skip(Math.max(0, history.size() - 5))
+                .map(command -> ConsoleColor.toColor(command, ConsoleColor.CYAN))
+                .forEach(console::println);
+
+        /*
         for (String command : history.subList(Math.max(history.size() - 5, 0), history.size())) {
             console.println(ConsoleColor.toColor(command, ConsoleColor.CYAN));
         }
+        */
     }
 }

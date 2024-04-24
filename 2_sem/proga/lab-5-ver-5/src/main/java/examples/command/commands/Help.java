@@ -6,6 +6,7 @@ import examples.managers.CollectionManager;
 import examples.managers.CommandManager;
 
 import java.util.Iterator;
+import java.util.stream.Stream;
 
 /**
  * displays help on available commands
@@ -24,11 +25,16 @@ public class Help extends Command {
     @Override
     public void execute(String a) {
 
+        commandManager.getCommands().stream()
+                .map(command -> ConsoleColor.toColor(command.getName(), ConsoleColor.GREEN) + command.getDescription())
+                .forEach(console::println);
+        /*
         Iterator<Command> iterator = commandManager.getCommands().iterator();
         while (iterator.hasNext()) {
             Command command = iterator.next();
             String commandInfo = ConsoleColor.toColor(command.getName(), ConsoleColor.GREEN) + command.getDescription();
             console.println(commandInfo);
         }
+         */
     }
 }

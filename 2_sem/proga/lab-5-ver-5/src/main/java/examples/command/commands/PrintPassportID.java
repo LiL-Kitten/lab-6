@@ -25,21 +25,28 @@ public class PrintPassportID extends Command {
     }
 
     @Override
-    public void execute(String a) throws IllegalArgumentException, ExitObliged, CommandRuntimeError {
+    public void execute(String a) {
+
         if (collectionManager.getCollection() == null || collectionManager.getCollection().isEmpty()) {
             console.printError("Коллекция пустая, нечего выводить");
             return;
         }
-
-        if (a.isEmpty()) throw new IllegalArgumentException("вы жук и не указали по какому PassportID сортировать!");
-
-        List<Person> sortedList = collectionManager.getCollection().stream()
+        collectionManager.getCollection().stream()
                 .filter(Objects::nonNull)
                 .sorted(Comparator.comparing(Person::getPassportID).reversed())
+                .peek(person -> console.println(person.getPassportID()))
                 .collect(Collectors.toList());
 
-        for (Person person : sortedList) {
-            console.println(person.getPassportID());
-        }
+            /*
+            List<Person> sortedList = collectionManager.getCollection().stream()
+                    .filter(Objects::nonNull)
+                    .sorted(Comparator.comparing(Person::getPassportID).reversed())
+                    .collect(Collectors.toList());
+
+            for (Person person : sortedList) {
+                console.println(person.getPassportID());
+            }
+            */
+
     }
 }

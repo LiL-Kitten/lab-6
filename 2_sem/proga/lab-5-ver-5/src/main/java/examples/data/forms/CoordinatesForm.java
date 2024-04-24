@@ -45,7 +45,7 @@ public class CoordinatesForm extends Form<Coordinates> {
                 return x;
             } catch (NumberFormatException e) {
                 console.println(ConsoleColor.RED + "Например: " + ConsoleColor.PURPLE + "1554" + ConsoleColor.RESET);
-                throw new IllegalArgumentException("Необходимо ввести число!");
+
             }
         }
     }

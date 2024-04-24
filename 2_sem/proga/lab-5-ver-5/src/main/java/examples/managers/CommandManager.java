@@ -18,10 +18,26 @@ public class CommandManager {
     private final HashMap<String, Command> commands = new HashMap<>();
     private boolean isScriptRecursionExecuted;
 
-    public CommandManager() {
+    public CommandManager(Printable console, CollectionManager collectionManager, FileManager fileManager) {
         isScriptRecursionExecuted = false;
-    }
 
+        addCommand(new Add(console, collectionManager));
+        addCommand(new Help(console, this));
+        addCommand(new Exit());
+        addCommand(new Show(console, collectionManager));
+        addCommand(new RemoveHead(console, collectionManager));
+        addCommand(new RemoveByID(console, collectionManager));
+        addCommand(new RemoveElements(console, collectionManager));
+        addCommand(new PrintPassportID(console, collectionManager));
+        addCommand(new UpdateID(console, collectionManager));
+        addCommand(new History(console, this));
+        addCommand(new GroupByDate(console, collectionManager));
+        addCommand(new FilterByName(console, collectionManager));
+        addCommand(new Info(console, collectionManager));
+        addCommand(new Clear(console, collectionManager));
+        addCommand(new Save(console, fileManager));
+        addCommand(new ExecuteScript(console, fileManager, this));
+    }
     public boolean isScriptRecursionExecuted() {
         return isScriptRecursionExecuted;
     }
@@ -32,27 +48,6 @@ public class CommandManager {
 
     public void addCommand(Command command) {
         this.commands.put(command.getName(), command);
-    }
-
-    public void useCommands(Printable console, CollectionManager collectionManager, FileManager fileManager, RuntimeManager runtimeManager) {
-        this.addCommand(new Add(console, collectionManager));
-        this.addCommand(new Help(console, this));
-        this.addCommand(new Exit());
-        this.addCommand(new Show(console, collectionManager));
-        this.addCommand(new RemoveHead(console, collectionManager));
-        this.addCommand(new RemoveByID(console, collectionManager));
-        this.addCommand(new RemoveElements(console, collectionManager));
-        this.addCommand(new PrintPassportID(console, collectionManager));
-        this.addCommand(new UpdateID(console, collectionManager));
-        this.addCommand(new History(console, this));
-        this.addCommand(new GroupByDate(console, collectionManager));
-        this.addCommand(new FilterByName(console, collectionManager));
-        this.addCommand(new Info(console, collectionManager));
-        this.addCommand(new Clear(console, collectionManager));
-        this.addCommand(new Save(console, fileManager));
-        this.addCommand(new ExecuteScript(console, fileManager, this));
-        runtimeManager.interactiveMode();
-
     }
 
     public Collection<Command> getCommands() {

@@ -8,12 +8,10 @@ import java.util.Scanner;
 
 public class InputManager implements UserInput {
     private Scanner scanner = new Scanner(System.in);
-    private Printable console;
 
     @Override
     public String next() {
-        String input = scanner.nextLine().trim();
-        return input;
+        return scanner.nextLine().trim();
     }
 
 }

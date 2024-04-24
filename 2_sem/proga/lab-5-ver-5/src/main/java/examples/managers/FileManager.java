@@ -1,5 +1,6 @@
 package examples.managers;
 
+import com.thoughtworks.xstream.security.AnyTypePermission;
 import examples.command.ConsoleColor;
 import examples.command.Printable;
 import examples.data.Person;
@@ -7,119 +8,82 @@ import examples.exceptions.ExitObliged;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.Collection;
 import java.util.Scanner;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.StreamException;
 
-import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamReader;
-import javax.xml.stream.events.XMLEvent;
-import java.io.StringReader;
-
 /**
  * class for parsing the contents of a file, for reading a file and for saving data to a file
  */
-
 public class FileManager {
+    public static final String FILE_PATH = "path";
+
     private Printable console;
     private XStream xStream = new XStream();
-    private String txt;
     private CollectionManager collectionManager;
     private String path;
 
     public FileManager(Printable console, CollectionManager collectionManager) {
         this.console = console;
         this.collectionManager = collectionManager;
-        path = System.getenv("path");
+        this.path = System.getenv(FILE_PATH);
+
+        try {
+            findFile();
+            create();
+        } catch (ExitObliged e) {
+            console.printError(e.getMessage());
+        } catch (StreamException e) {
+            console.printError("Ошибка при чтении файла");
+        }
     }
 
-    /**
-     * method responsible for searching for a file by specifying its path. Implemented via environment variable
-     *
-     * @throws ExitObliged
-     */
-    public void findFile() throws ExitObliged {
+    public String findFile() throws ExitObliged {
         File file = new File(path);
-        try {
-            Scanner scanner = new Scanner(file);
-            StringBuilder builder = new StringBuilder();
+        try (Scanner scanner = new Scanner(file)) {
+            StringBuilder fileContentBuilder = new StringBuilder();
 
             while (scanner.hasNext()) {
-                builder.append(scanner.nextLine());
+                fileContentBuilder.append(scanner.nextLine());
             }
-            scanner.close();
-            this.txt = builder.toString();
-            console.println(ConsoleColor.GREEN + "файл успешно найден можем работать с ним =)");
 
+            console.println(ConsoleColor.GREEN + "файл успешно найден можем работать с ним =)");
+            return fileContentBuilder.toString();
         } catch (FileNotFoundException e) {
             console.printError("Простите, но файл не найден \n =(");
             throw new ExitObliged("Простите, но файл не найден \\n =(");
         }
     }
 
-    /**
-     * parsing file data for further work with them as collection objects
-     */
-
-    public void create() {
-        try {
-            if (this.txt == null || this.txt.isEmpty()) {
-                System.out.println("файлик пуст");
-                return;
-            }
-
-            XMLInputFactory factory = XMLInputFactory.newInstance();
-            XMLStreamReader reader = factory.createXMLStreamReader(new StringReader(this.txt));
-
-            while (reader.hasNext()) {
-                int event = reader.next();
-                if (event == XMLEvent.START_ELEMENT && "person".equals(reader.getLocalName())) {
-                    Person person = processPerson(reader);
-                    if (person != null && isPersonValid(person)) {
-                        this.collectionManager.addElement(person);
-                    }
-                }
-            }
-        } catch (Exception e) {
-            console.println(ConsoleColor.RED + "ошибка в процессе чтения файла: " + ConsoleColor.PURPLE + e.getMessage() + ConsoleColor.RESET + "\n");
+    public void create() throws StreamException, ExitObliged {
+        String fileContent = findFile();
+        if (fileContent == null || fileContent.isEmpty()) {
+            console.printError("Простите но файл пуст, выводить так то нечего и проверять тоже\n =(");
+            console.println(ConsoleColor.GREEN + "Но ничего страшного, давайте его заполним, посмотрите командочк" + "у" + ConsoleColor.CYAN + " help =)");
+            return;
         }
-    }
 
-    private Person processPerson(XMLStreamReader reader) throws Exception {
-        Long id = null;
-        while (reader.hasNext()) {
-            int event = reader.next();
-            if (event == XMLEvent.END_ELEMENT && "person".equals(reader.getLocalName())) {
-                break;
-            } else if (event == XMLEvent.START_ELEMENT) {
-                switch (reader.getLocalName()) {
-                    case "id":
-                        try {
-                            id = Long.parseLong(reader.getElementText());
-                        } catch (NumberFormatException e) {
-                            console.println(ConsoleColor.YELLOW + "кривой id был удален");
-                            return null;
-                        }
-                        break;
-                }
-            }
+        xStream.alias("person", Person.class);
+        xStream.addPermission(AnyTypePermission.ANY);
+
+        CollectionManager deserializedCollectionManager = (CollectionManager) xStream.fromXML(fileContent);
+        Collection<Person> persons = deserializedCollectionManager.getCollection();
+
+        for (Person person : persons) {
+            this.collectionManager.addElement(person);
         }
-        return new Person(id);
+
+        long currentId = this.collectionManager.getCurrentId();
+
+        CollectionManager.setIdCounter(currentId);
+        console.println(ConsoleColor.GREEN + "объекты файла валидны, все ОКЭЙ, работаем");
     }
 
-    private boolean isPersonValid(Person person) {
-        return person.getID() != null && person.getID() > 0;
-    }
-
-    /**
-     * method for saving data to a file
-     */
     public void save() {
-        try {
-            BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(path));
+        try (BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(path))) {
             out.write(this.xStream.toXML(collectionManager).getBytes(StandardCharsets.UTF_8));
-            out.close();
         } catch (FileNotFoundException e) {
             console.printError("Файл не существует");
         } catch (IOException e) {
@@ -127,4 +91,3 @@ public class FileManager {
         }
     }
 }
-

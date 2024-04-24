@@ -35,7 +35,6 @@ public class CollectionManager {
     public CollectionManager() {
         collection = new LinkedList<>();
         lastInitDate = LocalDate.now();
-        lastSaveDate = LocalDate.now();
     }
 
     private LocalDate date;
@@ -137,12 +136,10 @@ public class CollectionManager {
      * @param newId new id (long)
      */
     public void updateId(long id, long newId) {
-        for (Person person : collection) {
-            if (person.getID() == id) {
-                person.setID(newId);
-                break;
-            }
-        }
+        collection.stream()
+                .filter(person -> person.getID() == id)
+                .findFirst()
+                .ifPresent(person -> person.setID(newId));
     }
 
     /**
@@ -188,6 +185,10 @@ public class CollectionManager {
      */
     public LocalDate getLastSaveDate() {
         return lastSaveDate;
+    }
+
+    public void setLastSaveDate() {
+        this.lastSaveDate = LocalDate.now();
     }
 
     /**
