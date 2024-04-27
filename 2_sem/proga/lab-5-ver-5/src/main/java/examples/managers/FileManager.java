@@ -52,8 +52,7 @@ public class FileManager {
             console.println(ConsoleColor.GREEN + "файл успешно найден можем работать с ним =)");
             return fileContentBuilder.toString();
         } catch (FileNotFoundException e) {
-            console.printError("Простите, но файл не найден \n =(");
-            throw new ExitObliged("Простите, но файл не найден \\n =(");
+            throw new ExitObliged("Простите, но файл не найден \n =(");
         }
     }
 

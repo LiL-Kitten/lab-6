@@ -35,7 +35,7 @@ public class CommandManager {
         addCommand(new FilterByName(console, collectionManager));
         addCommand(new Info(console, collectionManager));
         addCommand(new Clear(console, collectionManager));
-        addCommand(new Save(console, fileManager));
+        addCommand(new Save(console, fileManager, collectionManager));
         addCommand(new ExecuteScript(console, fileManager, this));
     }
     public boolean isScriptRecursionExecuted() {

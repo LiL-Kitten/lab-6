@@ -37,8 +37,6 @@ public class CollectionManager {
         lastInitDate = LocalDate.now();
     }
 
-    private LocalDate date;
-
     /**
      * adding a person object to the collection (also indicating its creation date)
      *
