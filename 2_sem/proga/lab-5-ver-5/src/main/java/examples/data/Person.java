@@ -1,6 +1,5 @@
 package examples.data;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
 import examples.command.ConsoleColor;
 
 import javax.validation.constraints.NotNull;
@@ -14,26 +13,17 @@ interface CoordinatesRange<T, S> {
     double getDistanceFromCentre(Double x, long y);
 }
 
-@XStreamAlias("person")
 public class Person implements Validator, Comparable<Person> {
-    @XStreamAlias("id")
-    @NotNull
+
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    @XStreamAlias("name")
+
     private String name; //Поле не может быть null, Строка не может быть пустой
-    @XStreamAlias("coordinates")
     private Coordinates coordinates; //Поле не может быть null
-    @XStreamAlias("creationDate")
     private LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    @XStreamAlias("height")
     private float height; //Значение поля должно быть больше 0
-    @XStreamAlias("passportID")
     private String passportID; //Строка не может быть пустой, Поле не может быть null
-    @XStreamAlias("hairColor")
     private Color hairColor; //Поле не может быть null
-    @XStreamAlias("nationality")
     private Country nationality; //Поле может быть null
-    @XStreamAlias("location")
     private Location location; //Поле может быть null
 
 

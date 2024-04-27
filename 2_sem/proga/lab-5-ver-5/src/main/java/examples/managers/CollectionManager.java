@@ -43,9 +43,9 @@ public class CollectionManager {
      * @param person
      */
     public void addElement(Person person) {
-        person.setID(getCurrentId());
-        person.setCreationDate(LocalDate.now());
-        this.collection.add(person);
+           person.setID(getCurrentId());
+           person.setCreationDate(LocalDate.now());
+           this.collection.add(person);
     }
 
     /**

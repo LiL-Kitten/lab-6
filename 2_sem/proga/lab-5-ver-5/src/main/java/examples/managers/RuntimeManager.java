@@ -7,6 +7,7 @@ import examples.exceptions.CommandRuntimeError;
 import examples.exceptions.ExitObliged;
 import examples.exceptions.NoSuchCommand;
 
+import java.io.IOException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -48,11 +49,13 @@ public class RuntimeManager {
                 console.printError("Ошибка при исполнении команды");
             } catch (ExitObliged exitObliged) {
                 return;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }
 
-    public void launch(String[] userCommand) throws NoSuchCommand, ExitObliged, IllegalArgumentException, CommandRuntimeError {
+    public void launch(String[] userCommand) throws IOException, ExitObliged, IllegalArgumentException {
         if (userCommand[0].equals("")) return;
         commandManager.execute(userCommand[0], userCommand[1]);
     }

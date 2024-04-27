@@ -93,7 +93,8 @@ public class PersonForm extends Form<Person> {
             try {
                 Color color = Color.valueOf(txt);
                 return color;
-            } catch (NumberFormatException e) {
+            } catch (IllegalArgumentException e)
+            {
                 console.printError("Вы указали что то не из списка =(\"");
             }
         }

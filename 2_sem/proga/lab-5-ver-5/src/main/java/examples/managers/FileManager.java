@@ -1,5 +1,7 @@
 package examples.managers;
 
+import com.thoughtworks.xstream.XStreamer;
+import com.thoughtworks.xstream.converters.ConversionException;
 import com.thoughtworks.xstream.security.AnyTypePermission;
 import examples.command.ConsoleColor;
 import examples.command.Printable;
@@ -13,6 +15,8 @@ import java.util.Scanner;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.StreamException;
+
+import javax.xml.stream.XMLStreamReader;
 
 /**
  * class for parsing the contents of a file, for reading a file and for saving data to a file
@@ -32,6 +36,7 @@ public class FileManager {
 
         try {
             findFile();
+            console.println(ConsoleColor.GREEN + "файл успешно найден можем работать с ним =)");
             create();
         } catch (ExitObliged e) {
             console.printError(e.getMessage());
@@ -49,7 +54,7 @@ public class FileManager {
                 fileContentBuilder.append(scanner.nextLine());
             }
 
-            console.println(ConsoleColor.GREEN + "файл успешно найден можем работать с ним =)");
+
             return fileContentBuilder.toString();
         } catch (FileNotFoundException e) {
             throw new ExitObliged("Простите, но файл не найден \n =(");
@@ -67,17 +72,18 @@ public class FileManager {
         xStream.alias("person", Person.class);
         xStream.addPermission(AnyTypePermission.ANY);
 
-        CollectionManager deserializedCollectionManager = (CollectionManager) xStream.fromXML(fileContent);
-        Collection<Person> persons = deserializedCollectionManager.getCollection();
 
-        for (Person person : persons) {
-            this.collectionManager.addElement(person);
+        try {
+
+            CollectionManager deserializedCollectionManager = (CollectionManager) xStream.fromXML(fileContent);
+            Collection<Person> persons = deserializedCollectionManager.getCollection();
+
+            for (Person person : persons) {
+                    this.collectionManager.addElement(person);
+            }
+        } catch (ConversionException e) {
+            console.printError("Ошибка при десериализации XML файла: " + e.getMessage());
         }
-
-        long currentId = this.collectionManager.getCurrentId();
-
-        CollectionManager.setIdCounter(currentId);
-        console.println(ConsoleColor.GREEN + "объекты файла валидны, все ОКЭЙ, работаем");
     }
 
     public void save() {

@@ -6,6 +6,7 @@ import examples.exceptions.CommandRuntimeError;
 import examples.exceptions.ExitObliged;
 import examples.exceptions.NoSuchCommand;
 
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -54,7 +55,7 @@ public class CommandManager {
         return this.commands.values();
     }
 
-    public void execute(String name, String args) throws NoSuchCommand, ExitObliged, CommandRuntimeError, IllegalArgumentException {
+    public void execute(String name, String args) throws IOException, ExitObliged, IllegalArgumentException {
         Command command = (Command) this.commands.get(name);
         if (command == null) {
             throw new NoSuchCommand("такой команды нет!");

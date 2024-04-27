@@ -4,6 +4,7 @@ import examples.exceptions.CommandRuntimeError;
 import examples.exceptions.ExitObliged;
 
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Objects;
 
@@ -55,7 +56,7 @@ public abstract class Command implements Executable {
     }
 
     @Override
-    public abstract void execute(String a) throws ExitObliged, CommandRuntimeError, IllegalArgumentException;
+    public abstract void execute(String a) throws ExitObliged, IOException, IllegalArgumentException;
 
     protected Iterator<Command> iterator() {
         return null;

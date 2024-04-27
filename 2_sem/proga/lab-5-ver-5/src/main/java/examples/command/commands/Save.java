@@ -6,6 +6,8 @@ import examples.exceptions.ExitObliged;
 import examples.managers.CollectionManager;
 import examples.managers.FileManager;
 
+import java.io.IOException;
+
 /**
  * save collection in file
  */
@@ -22,7 +24,7 @@ public class Save extends Command {
     }
 
     @Override
-    public void execute(String a) throws ExitObliged {
+    public void execute(String a) throws ExitObliged, IOException {
         fileManager.save();
         collectionManager.setLastSaveDate();
         console.println(ConsoleColor.GREEN + "супер, все сохранилось в текущий файлик =)");
