@@ -1,6 +1,5 @@
 <examples.managers.CollectionManager>
-  <lastInitDate>2024-04-11</lastInitDate>
-  <lastSaveDate>2024-04-11</lastSaveDate>
+  <lastInitDate>2024-04-27</lastInitDate>
   <collection>
     <person>
       <id>1</id>
@@ -9,7 +8,7 @@
         <x>1</x>
         <y>1.0</y>
       </coordinates>
-      <creationDate>2024-04-11</creationDate>
+      <creationDate>2024-04-27</creationDate>
       <height>1.0</height>
       <passportID>1</passportID>
       <hairColor>RED</hairColor>
@@ -27,7 +26,7 @@
         <x>164</x>
         <y>154.0</y>
       </coordinates>
-      <creationDate>2024-04-11</creationDate>
+      <creationDate>2024-04-27</creationDate>
       <height>134.0</height>
       <passportID>15</passportID>
       <hairColor>BLUE</hairColor>
@@ -45,7 +44,7 @@
         <x>153</x>
         <y>-135.0</y>
       </coordinates>
-      <creationDate>2024-04-11</creationDate>
+      <creationDate>2024-04-27</creationDate>
       <height>13.0</height>
       <passportID>315</passportID>
       <hairColor>RED</hairColor>
@@ -63,7 +62,7 @@
         <x>124</x>
         <y>134.0</y>
       </coordinates>
-      <creationDate>2024-04-11</creationDate>
+      <creationDate>2024-04-27</creationDate>
       <height>135.0</height>
       <passportID>15413</passportID>
       <hairColor>RED</hairColor>
