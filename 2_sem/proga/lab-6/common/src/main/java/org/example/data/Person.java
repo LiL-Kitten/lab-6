@@ -13,6 +13,7 @@ import java.util.Objects;
 interface CoordinatesRange<T, S> {
     double getDistanceFromCentre(Double x, long y);
 }
+
 @XStreamAlias("person")
 public class Person implements Validator, Comparable<Person>, Serializable {
 
@@ -40,6 +41,7 @@ public class Person implements Validator, Comparable<Person>, Serializable {
         this.hairColor = hairColor;
         this.nationality = nationality;
         this.location = location;
+        this.creationDate = LocalDate.now();
     }
 
     public Person(Long id) {
@@ -142,15 +144,43 @@ public class Person implements Validator, Comparable<Person>, Serializable {
 
     @Override
     public boolean validate() {
-        if (this.id <= 0) return false;
-        if (this.name == null || this.name.isEmpty()) return false;
-        if (this.coordinates == null) return false;
-        if (this.creationDate == null) return false;
-        if (this.height <= 0) return false;
-        if (this.passportID == null) return false;
-        if (this.hairColor == null) return false;
-        if (this.nationality == null) return false;
-        return !(this.location == null);
+        if (this.id <= 0) {
+            System.out.println("попка");
+            return false;
+        }
+
+        if (this.name == null || this.name.isEmpty()) {
+            System.out.println("имя говно");
+            return false;
+        }
+        if (this.coordinates == null) {
+            System.out.println("координаты говно");
+            return false;
+        }
+        if (this.creationDate == null) {
+            System.out.println("дата создания говно");
+            return false;
+        }
+        if (this.height <= 0) {
+            System.out.println("вес говно");
+            return false;
+        }
+        if (this.passportID == null) {
+            System.out.println("паспортИД говно");
+            return false;
+        }
+        if (this.hairColor == null) {
+            System.out.println("цвет волос говно");
+            return false;
+        }
+        if (this.nationality == null) {
+            System.out.println("национальность говно");
+            return false;
+        }
+        if (this.location == null) {
+            System.out.println("локация говно");
+            return false;
+        } else return true;
     }
 
     @Override

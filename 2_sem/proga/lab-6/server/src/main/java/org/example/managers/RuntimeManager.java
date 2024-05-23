@@ -32,7 +32,7 @@ public class RuntimeManager {
             commandManager.addToHistory(request.getCommand());
             this.launch(request);
             // Успешное выполнение команды
-            return new Response(ResponseStatus.OK, ConsoleColor.GREEN+"Команда выполнена успешно\n"+ ConsoleColor.RESET+ this.launch(request));
+            return this.launch(request);
         } catch (NoSuchElementException exception) {
             console.printError("Пользовательский ввод не обнаружен!");
             return new Response(ResponseStatus.ERROR, "Пользовательский ввод не обнаружен!");

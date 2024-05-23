@@ -87,9 +87,11 @@ public class RuntimeManager {
             console.printError("Не удалось получить ответ от сервера.");
             return;
         }
-        switch (response.getStatus()){
+        console.println("Получен ответ с статусом: " + response.getStatus());
+
+        switch (response.getStatus()) {
             case OK -> {
-                if ((Objects.isNull(response.getCollection()))) {
+                if (Objects.isNull(response.getCollection())) {
                     console.println(response.getResponse());
                 } else {
                     console.println(response.getResponse() + "\n" + response.getCollection().toString());
@@ -97,10 +99,18 @@ public class RuntimeManager {
             }
             case ERROR -> console.printError(response.getResponse());
             case WRONG_ARGUMENTS -> console.printError("Неверное использование команды!");
-            default -> {}
+            case ASK_OBJECT -> {
+                Person person;
+                try {
+                    person = new PersonForm(console).build();
+                    if (!person.validate()) throw new ExceptionInFileMode();
+                } catch (ExceptionInFileMode err) {
+                    console.printError("Поля в файле не валидны! Объект не создан");
+                }
+            }
+            default -> console.printError("Неизвестный статус ответа!");
         }
     }
-
     private void fileExecution(String args) {
         if (args == null || args.isEmpty()) {
             console.printError("Путь не распознан");

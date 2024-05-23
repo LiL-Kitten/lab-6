@@ -60,19 +60,14 @@ public class CommandManager {
     }
 
     public Response execute(Request request) throws IOException, ExitObliged, IllegalArgumentException {
-       try{
         Command command = this.commands.get(request.getCommand());
 
         if (command == null) {
-            throw new NoSuchCommand("такой команды нет!");
+            return new Response(ResponseStatus.ERROR, "такой команды нет!");
         } else {
             String txt = String.valueOf(command.execute(request));
-            return new Response(ResponseStatus.ERROR, txt);
+            return new Response(command.execute(request).getStatus(), txt);
         }
-       }catch (NoSuchCommand e) {
-           console.printError("такой команды нет");
-       }
-       return null;
     }
 
     public void addToHistory(String line) {

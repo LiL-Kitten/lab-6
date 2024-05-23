@@ -1,7 +1,5 @@
 package org.example.util;
 
-import org.example.util.Printable;
-
 import java.util.Scanner;
 
 

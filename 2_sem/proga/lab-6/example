@@ -1,42 +1,7 @@
 <org.example.managers.CollectionManager>
-  <lastInitDate>2024-05-09</lastInitDate>
+  <lastInitDate>2024-05-23</lastInitDate>
+  <lastSaveDate>2024-05-23</lastSaveDate>
   <collection>
-    <person>
-      <id>1</id>
-      <name>1</name>
-      <coordinates>
-        <x>1</x>
-        <y>1.0</y>
-      </coordinates>
-      <creationDate>2024-05-09</creationDate>
-      <height>1.0</height>
-      <passportID>1</passportID>
-      <hairColor>RED</hairColor>
-      <nationality>SPAIN</nationality>
-      <location>
-        <x>14.0</x>
-        <y>15</y>
-        <name>154</name>
-      </location>
-    </person>
-    <person>
-      <id>2</id>
-      <name>4135</name>
-      <coordinates>
-        <x>164</x>
-        <y>154.0</y>
-      </coordinates>
-      <creationDate>2024-05-09</creationDate>
-      <height>134.0</height>
-      <passportID>15</passportID>
-      <hairColor>BLUE</hairColor>
-      <nationality>VATICAN</nationality>
-      <location>
-        <x>41.0</x>
-        <y>51</y>
-        <name>5146</name>
-      </location>
-    </person>
     <person>
       <id>3</id>
       <name>143</name>
@@ -44,7 +9,7 @@
         <x>153</x>
         <y>-135.0</y>
       </coordinates>
-      <creationDate>2024-05-09</creationDate>
+      <creationDate>2024-05-23</creationDate>
       <height>13.0</height>
       <passportID>315</passportID>
       <hairColor>RED</hairColor>
@@ -62,7 +27,7 @@
         <x>124</x>
         <y>134.0</y>
       </coordinates>
-      <creationDate>2024-05-09</creationDate>
+      <creationDate>2024-05-23</creationDate>
       <height>135.0</height>
       <passportID>15413</passportID>
       <hairColor>RED</hairColor>
@@ -80,7 +45,7 @@
         <x>1425153</x>
         <y>1.23412341243214E14</y>
       </coordinates>
-      <creationDate>2024-05-09</creationDate>
+      <creationDate>2024-05-23</creationDate>
       <height>1.23412342E16</height>
       <passportID>1251234512451245145124541235123541234125</passportID>
       <hairColor>WHITE</hairColor>
@@ -98,7 +63,7 @@
         <x>71237423</x>
         <y>1.2341235125415354E27</y>
       </coordinates>
-      <creationDate>2024-05-09</creationDate>
+      <creationDate>2024-05-23</creationDate>
       <height>Infinity</height>
       <passportID></passportID>
       <hairColor>RED</hairColor>
