@@ -1,10 +1,10 @@
-package examples.data.forms;
+package org.example.forms;
 
-import examples.command.ConsoleColor;
-import examples.command.Printable;
-import examples.command.UserInput;
-import examples.managers.InputManager;
-import examples.data.Coordinates;
+import org.example.util.ConsoleColor;
+import org.example.util.InputManager;
+import org.example.util.Printable;
+import org.example.data.Coordinates;
+import org.example.util.UserInput;
 
 /**
  * class for creating examples Coordinates and add some value

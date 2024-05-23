@@ -1,8 +1,9 @@
-package org.example.command.commands;
+package org.example.commands;
 
 import org.example.dth.Request;
-import org.example.dth.Response;
 import org.example.data.Person;
+import org.example.dth.Response;
+import org.example.dth.ResponseStatus;
 import org.example.util.ConsoleColor;
 import org.example.util.Printable;
 
@@ -26,12 +27,12 @@ public class PrintPassportID extends Command {
     }
 
     @Override
-    public String execute(Request request) {
+    public Response execute(Request request) {
 
         if (collectionManager.getCollection() == null || collectionManager.getCollection().isEmpty()) {
             String txt = "Коллекция пустая, нечего выводить";
             console.printError(txt);
-            return ConsoleColor.RED + txt;
+            return new Response(ResponseStatus.ERROR,ConsoleColor.RED + txt);
         }
         String txt = collectionManager.getCollection().stream()
                 .filter(Objects::nonNull)
@@ -40,7 +41,7 @@ public class PrintPassportID extends Command {
                 .collect(Collectors.joining("\n"));
         console.println(txt);
 
-        return txt;
+        return new Response(ResponseStatus.OK,txt);
             /*
             List<Person> sortedList = collectionManager.getCollection().stream()
                     .filter(Objects::nonNull)

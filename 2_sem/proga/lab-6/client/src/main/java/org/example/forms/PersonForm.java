@@ -1,13 +1,10 @@
-package examples.data.forms;
+package org.example.forms;
 
-import examples.command.ConsoleColor;
-import examples.command.Printable;
-import examples.command.UserInput;
-import examples.data.*;
-
-import examples.exceptions.InvalidForm;
-import examples.managers.InputManager;
-
+import org.example.data.*;
+import org.example.util.ConsoleColor;
+import org.example.util.InputManager;
+import org.example.util.Printable;
+import org.example.util.UserInput;
 
 /**
  * class for creating object Person and add some values from other forms
@@ -24,7 +21,7 @@ public class PersonForm extends Form<Person> {
     }
 
     @Override
-    public Person build() throws InvalidForm {
+    public Person build() {
         return person = new Person
                 (
                         addName(),

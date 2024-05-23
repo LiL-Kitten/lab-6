@@ -4,6 +4,7 @@ package org.example.managers;
 import com.thoughtworks.xstream.converters.ConversionException;
 import com.thoughtworks.xstream.security.AnyTypePermission;
 import org.example.exceptions.InvalidForm;
+import org.example.managers.CollectionManager;
 import org.example.util.ConsoleColor;
 import org.example.util.Printable;
 import org.example.data.Person;

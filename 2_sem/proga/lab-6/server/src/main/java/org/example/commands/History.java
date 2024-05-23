@@ -1,7 +1,8 @@
-package org.example.command.commands;
+package org.example.commands;
 
 import org.example.dth.Request;
 import org.example.dth.Response;
+import org.example.dth.ResponseStatus;
 import org.example.util.ConsoleColor;
 import org.example.util.Printable;
 import org.example.managers.CommandManager;
@@ -24,7 +25,7 @@ public class History extends Command {
     }
 
     @Override
-    public String execute(Request request) {
+    public Response execute(Request request) {
         List<String> history = commandManager.getCommandHistory();
 
         String txt = history.stream()
@@ -34,7 +35,7 @@ public class History extends Command {
 
         console.println(txt);
 
-        return txt;
+        return new Response(ResponseStatus.OK,txt);
 
         /*
         for (String command : history.subList(Math.max(history.size() - 5, 0), history.size())) {

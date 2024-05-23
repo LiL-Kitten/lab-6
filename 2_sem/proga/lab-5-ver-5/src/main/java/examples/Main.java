@@ -4,6 +4,8 @@ package examples;
 import examples.command.Console;
 import examples.exceptions.ExitObliged;
 import examples.exceptions.NoSuchCommand;
+import examples.managers.CollectionManager;
+import examples.managers.FileManager;
 import examples.managers.RuntimeManager;
 
 
@@ -18,6 +20,8 @@ public class Main
 
         RuntimeManager runtimeManager = new RuntimeManager(console);
         runtimeManager.interactiveMode();
+
+
 
     }
 

@@ -1,4 +1,4 @@
-package examples.exceptions;
+package org.example.exceptions;
 
 public class ExitObliged extends  InterruptedException  {
     private String message;

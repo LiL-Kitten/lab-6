@@ -1,7 +1,8 @@
-package org.example.command.commands;
+package org.example.commands;
 
 import org.example.dth.Request;
 import org.example.dth.Response;
+import org.example.dth.ResponseStatus;
 import org.example.util.Console;
 
 /**
@@ -15,8 +16,8 @@ public class Exit extends Command {
     }
 
     @Override
-    public String execute(Request request) {
+    public Response execute(Request request) {
         //написать код для отключения от сервера
-        return "Дотвидания =(";
+        return new Response(ResponseStatus.EXIT,"Дотвидания =(");
     }
 }

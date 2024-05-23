@@ -1,9 +1,9 @@
-package examples.exceptions;
+package org.example.exceptions;
 
 public class InvalidForm extends Exception {
     private String message;
 
-    public InvalidForm(String message) {
+    public InvalidForm() {
         this.message = message;
     }
 

@@ -1,10 +1,10 @@
-package examples.data.forms;
+package org.example.forms;
 
-import examples.command.ConsoleColor;
-import examples.command.Printable;
-import examples.command.UserInput;
-import examples.data.Location;
-import examples.managers.InputManager;
+import org.example.data.Location;
+import org.example.util.ConsoleColor;
+import org.example.util.InputManager;
+import org.example.util.Printable;
+import org.example.util.UserInput;
 
 /**
  * class for creating Location with some values

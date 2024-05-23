@@ -1,6 +1,4 @@
-package examples.data.forms;
-
-import examples.exceptions.InvalidForm;
+package org.example.forms;
 
 /**
  * class for working with class which use method build()
@@ -13,9 +11,8 @@ public abstract class Form<T> {
      * method for creating different objects
      *
      * @return T
-     * @throws InvalidForm
      */
-    abstract public T build() throws InvalidForm;
+    abstract public T build() ;
 
 }
 

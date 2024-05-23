@@ -1,10 +1,11 @@
-package org.example.command.commands;
+package org.example.commands;
 
 import org.example.dth.Request;
+import org.example.dth.Response;
 
 /**
  * Interface for executing any commands
  */
 public interface Executable {
-    public String execute(Request request);
+    public Response execute(Request request);
 }

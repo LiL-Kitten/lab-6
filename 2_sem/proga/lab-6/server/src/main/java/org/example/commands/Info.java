@@ -1,8 +1,9 @@
-package org.example.command.commands;
+package org.example.commands;
 
 
 import org.example.dth.Request;
 import org.example.dth.Response;
+import org.example.dth.ResponseStatus;
 import org.example.util.ConsoleColor;
 import org.example.util.Printable;
 import org.example.managers.CollectionManager;
@@ -21,7 +22,7 @@ public class Info extends Command {
     }
 
     @Override
-    public String execute(Request request) {
+    public Response execute(Request request) {
         String lastInitDate = (collectionManager.getLastInitDate() == null)
                 ? "Коллекция не инициализирована "
                 : collectionManager.getLastInitDate().toString();
@@ -35,6 +36,6 @@ public class Info extends Command {
                 .append(ConsoleColor.toColor("Дата последней инициализации: ", ConsoleColor.BLUE) + lastInitDate + "\n")
                 .append(ConsoleColor.toColor("Дата последней изменения: ", ConsoleColor.BLUE) + lastSaveDate + "\n");
         console.print(stringBuilder.toString());
-        return stringBuilder.toString();
+        return new Response(ResponseStatus.OK,stringBuilder.toString());
     }
 }

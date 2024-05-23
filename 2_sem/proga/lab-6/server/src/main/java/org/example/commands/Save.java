@@ -1,7 +1,8 @@
-package org.example.command.commands;
+package org.example.commands;
 
 import org.example.dth.Request;
 import org.example.dth.Response;
+import org.example.dth.ResponseStatus;
 import org.example.util.ConsoleColor;
 import org.example.util.Printable;
 import org.example.managers.CollectionManager;
@@ -23,10 +24,10 @@ public class Save extends Command {
     }
 
     @Override
-    public String execute(Request request) {
+    public Response execute(Request request) {
         fileManager.save();
         collectionManager.setLastSaveDate();
         console.println(ConsoleColor.GREEN + "супер, все сохранилось в текущий файлик =)");
-        return ConsoleColor.GREEN + "супер, все сохранилось в текущий файлик =)";
+        return new Response(ResponseStatus.OK,ConsoleColor.GREEN + "супер, все сохранилось в текущий файлик =)");
     }
 }

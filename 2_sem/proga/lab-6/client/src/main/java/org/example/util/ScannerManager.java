@@ -1,4 +1,4 @@
-package examples.managers;
+package org.example.util;
 
 import java.util.Scanner;
 
@@ -8,5 +8,6 @@ public class ScannerManager {
     public Scanner getInput() {
         return input;
     }
+
 
 }

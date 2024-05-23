@@ -1,7 +1,9 @@
-package examples.data;
+package org.example.data;
 
 
-public enum Country {
+import java.io.Serializable;
+
+public enum Country implements Serializable {
     RUSSIA,
     UNITED_KINGDOM,
     SPAIN,

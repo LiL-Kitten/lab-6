@@ -1,9 +1,9 @@
-package examples.exceptions;
+package org.example.exceptions;
 
 public class ExceptionInFileMode extends RuntimeException {
     private String message;
 
-    public ExceptionInFileMode(String message) {
+    public ExceptionInFileMode() {
         this.message = message;
     }
 

@@ -6,6 +6,8 @@ import examples.exceptions.CommandRuntimeError;
 import examples.exceptions.ExitObliged;
 import examples.managers.CollectionManager;
 
+import java.util.NoSuchElementException;
+
 /**
  * removes the first element from the collection, but prints it out first
  */
@@ -20,13 +22,18 @@ public class RemoveHead extends Command {
     }
 
     @Override
-    public void execute(String a) throws ExitObliged, CommandRuntimeError {
-        if (collectionManager.getCollection() == null) {
-            console.printError("Коллекция пуста, удалять нечего((");
-        } else {
-            Person first = collectionManager.getFirst();
-            collectionManager.removeFirst();
-            console.println("Первый элемент коллекции удален: " + first);
+    public void execute(String a) {
+        try {
+            if (collectionManager.getCollection() == null) {
+                console.printError("Коллекция пуста, удалять нечего((");
+            } else {
+                Person first = collectionManager.getFirst();
+                console.println("Первый элемент коллекции удален: " + first);
+                collectionManager.removeFirst();
+            }
+        }catch (NoSuchElementException e) {
+
         }
+
     }
 }

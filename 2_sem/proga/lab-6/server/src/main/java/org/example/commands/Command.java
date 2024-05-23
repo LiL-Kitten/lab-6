@@ -1,6 +1,7 @@
-package org.example.command.commands;
+package org.example.commands;
 
 import org.example.dth.Request;
+import org.example.dth.Response;
 
 import java.util.Iterator;
 import java.util.Objects;
@@ -53,7 +54,7 @@ public abstract class Command implements Executable {
     }
 
     @Override
-    public abstract String execute(Request request);
+    public abstract Response execute(Request request);
 
     protected Iterator<Command> iterator() {
         return null;

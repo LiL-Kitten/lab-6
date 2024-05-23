@@ -1,7 +1,8 @@
-package examples.managers;
+package org.example.managers;
 
 
-import examples.data.Person;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import org.example.data.Person;
 
 import java.time.LocalDate;
 
@@ -12,8 +13,9 @@ import java.util.stream.Collectors;
  * class for working with the Person collection
  */
 
-
+@XStreamAlias("org.example.managers.CollectionManager")
 public class CollectionManager {
+
 
     /**
      * @param idCounter counter id
@@ -37,15 +39,19 @@ public class CollectionManager {
         lastInitDate = LocalDate.now();
     }
 
+    public static long getNextID() {
+        return idCounter++;
+    }
+
     /**
      * adding a person object to the collection (also indicating its creation date)
      *
      * @param person
      */
     public void addElement(Person person) {
-           person.setID(getCurrentId());
-           person.setCreationDate(LocalDate.now());
-           this.collection.add(person);
+        person.setID(getCurrentId());
+        person.setCreationDate(LocalDate.now());
+        this.collection.add(person);
     }
 
     /**
@@ -155,6 +161,7 @@ public class CollectionManager {
      * @return size, type collection Integer
      */
     public Integer collectionSize() {
+        System.out.println(collection.size());
         return collection.size();
     }
 

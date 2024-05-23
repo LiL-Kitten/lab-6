@@ -1,7 +1,8 @@
-package org.example.command.commands;
+package org.example.commands;
 
 import org.example.dth.Request;
 import org.example.dth.Response;
+import org.example.dth.ResponseStatus;
 import org.example.util.ConsoleColor;
 import org.example.util.Printable;
 import org.example.managers.CollectionManager;
@@ -22,14 +23,14 @@ public class FilterByName extends Command {
     }
 
     @Override
-    public String execute(Request request) {
+    public Response execute(Request request) {
         if (collectionManager.getCollection().isEmpty()) {
-            return  ConsoleColor.RED + "Коллекци пустая =(";
+            return  new Response(ResponseStatus.ERROR,ConsoleColor.RED + "Коллекци пустая =(");
         }
 
         if (request == null) {
             console.printError("Не указана подстрока для фильтрации.");
-            return  ConsoleColor.RED + "Не указана подстрока для фильтрации.";
+            return  new Response(ResponseStatus.ERROR,ConsoleColor.RED + "Не указана подстрока для фильтрации.");
         }
 
         String namePrefix = request.getArg().trim();
@@ -38,7 +39,7 @@ public class FilterByName extends Command {
                 .map(person -> "Результат фильтрации:\n" + person)
                 .collect(Collectors.joining("\n"));
         console.println(txt);
-        return  txt;
+        return  new Response(ResponseStatus.OK,txt);
     }
 
 }

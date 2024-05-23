@@ -1,6 +1,8 @@
-package examples.data;
+package org.example.data;
 
-public class Location implements Validator {
+import java.io.Serializable;
+
+public class Location implements Validator, Serializable {
     private Double x;
     private long y;
     private String name;

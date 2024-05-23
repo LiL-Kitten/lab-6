@@ -1,7 +1,8 @@
-package org.example.command.commands;
+package org.example.commands;
 
 import org.example.dth.Request;
 import org.example.dth.Response;
+import org.example.dth.ResponseStatus;
 import org.example.util.ConsoleColor;
 import org.example.util.Printable;
 import org.example.managers.CollectionManager;
@@ -24,11 +25,11 @@ public class Help extends Command {
     }
 
     @Override
-    public String execute(Request request) {
+    public Response execute(Request request) {
         String commandList = commandManager.getCommands().stream()
                 .map(command -> ConsoleColor.toColor(command.getName(), ConsoleColor.GREEN) + command.getDescription())
                 .collect(Collectors.joining("\n"));
         //console.println(commandList);
-        return commandList;
+        return new Response(ResponseStatus.OK,commandList);
     }
 }

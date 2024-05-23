@@ -1,10 +1,13 @@
-package examples.managers;
+package org.example.managers;
 
-import examples.command.Printable;
-import examples.command.commands.*;
-import examples.exceptions.CommandRuntimeError;
-import examples.exceptions.ExitObliged;
-import examples.exceptions.NoSuchCommand;
+import org.example.commands.*;
+import org.example.dth.Request;
+import org.example.dth.Response;
+import org.example.dth.ResponseStatus;
+import org.example.exceptions.ExitObliged;
+import org.example.exceptions.NoSuchCommand;
+import org.example.util.Console;
+import org.example.util.Printable;
 
 import java.io.IOException;
 import java.util.*;
@@ -14,6 +17,7 @@ import java.util.*;
  */
 public class CommandManager {
 
+    Console console = new Console();
     private final List<String> commandHistory = new ArrayList<>();
 
     private final HashMap<String, Command> commands = new HashMap<>();
@@ -55,13 +59,20 @@ public class CommandManager {
         return this.commands.values();
     }
 
-    public void execute(String name, String args) throws IOException, ExitObliged, IllegalArgumentException {
-        Command command = (Command) this.commands.get(name);
+    public Response execute(Request request) throws IOException, ExitObliged, IllegalArgumentException {
+       try{
+        Command command = this.commands.get(request.getCommand());
+
         if (command == null) {
             throw new NoSuchCommand("такой команды нет!");
         } else {
-            command.execute(args);
+            String txt = String.valueOf(command.execute(request));
+            return new Response(ResponseStatus.ERROR, txt);
         }
+       }catch (NoSuchCommand e) {
+           console.printError("такой команды нет");
+       }
+       return null;
     }
 
     public void addToHistory(String line) {
@@ -72,6 +83,7 @@ public class CommandManager {
     public List<String> getCommandHistory() {
         return commandHistory;
     }
+
 
 
 }

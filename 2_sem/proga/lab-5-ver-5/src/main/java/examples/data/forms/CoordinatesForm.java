@@ -44,6 +44,7 @@ public class CoordinatesForm extends Form<Coordinates> {
                 Integer x = Integer.parseInt(txtX);
                 return x;
             } catch (NumberFormatException e) {
+                console.printError("Необходимо ввести число!!!");
                 console.println(ConsoleColor.RED + "Например: " + ConsoleColor.PURPLE + "1554" + ConsoleColor.RESET);
 
             }

@@ -1,4 +1,4 @@
-package examples.exceptions;
+package org.example.exceptions;
 
 public class EmptyCollectionException extends RuntimeException {
     private String message;

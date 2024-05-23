@@ -24,7 +24,7 @@ public class RuntimeManager {
         this.console = console;
     }
 
-    public void interactiveMode() {
+    public void interactiveMode() throws RuntimeException {
         CollectionManager collectionManager = new CollectionManager();
         fileManager = new FileManager(console, collectionManager);
         commandManager = new CommandManager(console, collectionManager, fileManager);
@@ -41,10 +41,10 @@ public class RuntimeManager {
                 this.launch(cmd);
             } catch (NoSuchElementException exception) {
                 console.printError("Пользовательский ввод не обнаружен!");
+                break;
             } catch (NoSuchCommand noSuchCommand) {
                 console.printError("Такой команды нет в списке");
                 console.println(ConsoleColor.BLUE + "Введите " + ConsoleColor.GREEN + "help" + ConsoleColor.BLUE + " для того чтобы вывести список команд");
-
             } catch (CommandRuntimeError e) {
                 console.printError("Ошибка при исполнении команды");
             } catch (ExitObliged exitObliged) {

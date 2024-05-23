@@ -1,6 +1,6 @@
 package examples.managers;
 
-import com.thoughtworks.xstream.XStreamer;
+
 import com.thoughtworks.xstream.converters.ConversionException;
 import com.thoughtworks.xstream.security.AnyTypePermission;
 import examples.command.ConsoleColor;
@@ -16,7 +16,7 @@ import java.util.Scanner;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.StreamException;
 
-import javax.xml.stream.XMLStreamReader;
+
 
 /**
  * class for parsing the contents of a file, for reading a file and for saving data to a file
@@ -29,6 +29,7 @@ public class FileManager {
     private CollectionManager collectionManager;
     private String path;
 
+
     public FileManager(Printable console, CollectionManager collectionManager) {
         this.console = console;
         this.collectionManager = collectionManager;
@@ -40,6 +41,7 @@ public class FileManager {
             create();
         } catch (ExitObliged e) {
             console.printError(e.getMessage());
+            System.exit(1);
         } catch (StreamException e) {
             console.printError("Ошибка при чтении файла");
         }
@@ -47,17 +49,20 @@ public class FileManager {
 
     public String findFile() throws ExitObliged {
         File file = new File(path);
+        if (path == null || path.isEmpty() || !file.exists()) {
+            throw new ExitObliged("бикоз путя нима");
+        }
         try (Scanner scanner = new Scanner(file)) {
             StringBuilder fileContentBuilder = new StringBuilder();
-
             while (scanner.hasNext()) {
                 fileContentBuilder.append(scanner.nextLine());
             }
-
-
+            console.println(ConsoleColor.GREEN + "файл успешно найден можем работать с ним =)");
             return fileContentBuilder.toString();
         } catch (FileNotFoundException e) {
-            throw new ExitObliged("Простите, но файл не найден \n =(");
+            // Этот блок кода не будет выполняться, так как мы проверили существование файла ранее
+            // Но он обязателен для компиляции, так как Scanner может выбросить FileNotFoundException
+            throw new RuntimeException("Это сообщение никогда не будет выведено", e);
         }
     }
 

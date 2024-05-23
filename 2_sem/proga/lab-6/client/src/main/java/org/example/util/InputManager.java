@@ -1,13 +1,18 @@
-package examples.managers;
+package org.example.util;
 
-import examples.command.Printable;
-import examples.command.UserInput;
+import org.example.util.Printable;
 
 import java.util.Scanner;
 
 
 public class InputManager implements UserInput {
     private Scanner scanner = new Scanner(System.in);
+
+
+    @Override
+    public String nextLine() {
+        return scanner.nextLine().trim();
+    }
 
     @Override
     public String next() {

@@ -1,7 +1,8 @@
-package org.example.command.commands;
+package org.example.commands;
 
 import org.example.dth.Request;
 import org.example.dth.Response;
+import org.example.dth.ResponseStatus;
 import org.example.util.Printable;
 import org.example.util.ConsoleColor;
 import org.example.data.Person;
@@ -23,7 +24,7 @@ public class GroupByDate extends Command {
     }
 
     @Override
-    public String execute(Request request) {
+    public Response execute(Request request) {
         String txt = collectionManager.getCollection().stream()
                 .collect(Collectors.groupingBy(Person::getCreationDate, Collectors.counting()))
                 .entrySet().stream()
@@ -31,7 +32,7 @@ public class GroupByDate extends Command {
                 .collect(Collectors.joining("\n"));
 
         console.println(ConsoleColor.BLUE + "Группировка по дате создания:" + txt);
-        return ConsoleColor.BLUE+"Группировка по дате создания: "+ txt;
+        return new Response(ResponseStatus.OK,ConsoleColor.BLUE+"Группировка по дате создания: "+ txt);
 
     }
 

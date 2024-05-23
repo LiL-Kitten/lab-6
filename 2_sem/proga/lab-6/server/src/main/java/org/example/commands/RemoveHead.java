@@ -1,7 +1,8 @@
-package org.example.command.commands;
+package org.example.commands;
 
 import org.example.dth.Request;
 import org.example.dth.Response;
+import org.example.dth.ResponseStatus;
 import org.example.util.ConsoleColor;
 import org.example.util.Printable;
 import org.example.data.Person;
@@ -23,19 +24,19 @@ public class RemoveHead extends Command {
     }
 
     @Override
-    public String execute(Request request) {
+    public Response execute(Request request) {
         try {
             if (collectionManager.getCollection() == null) {
                 console.printError("Коллекция пуста, удалять нечего((");
-                return ConsoleColor.RED + "Коллекция пуста, удалять нечего((";
+                return new Response(ResponseStatus.ERROR,ConsoleColor.RED + "Коллекция пуста, удалять нечего((");
             } else {
                 Person first = collectionManager.getFirst();
                 console.println("Первый элемент коллекции удален: " + first);
                 collectionManager.removeFirst();
-                return "Первый элемент коллекции удален: " + first;
+                return new Response(ResponseStatus.OK,"Первый элемент коллекции удален: " + first);
             }
         }catch (NoSuchElementException e) {
-                return "Такого ID нет!";
+                return new Response(ResponseStatus.ERROR,"Такого ID нет!");
         }
 
     }

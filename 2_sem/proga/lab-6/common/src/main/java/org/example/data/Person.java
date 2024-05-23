@@ -1,8 +1,9 @@
-package examples.data;
+package org.example.data;
 
-import examples.command.ConsoleColor;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import org.example.util.ConsoleColor;
 
-import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.Objects;
@@ -12,8 +13,8 @@ import java.util.Objects;
 interface CoordinatesRange<T, S> {
     double getDistanceFromCentre(Double x, long y);
 }
-
-public class Person implements Validator, Comparable<Person> {
+@XStreamAlias("person")
+public class Person implements Validator, Comparable<Person>, Serializable {
 
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
 

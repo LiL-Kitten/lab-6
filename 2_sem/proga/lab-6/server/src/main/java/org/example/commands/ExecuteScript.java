@@ -1,7 +1,8 @@
-package org.example.command.commands;
+package org.example.commands;
 
 import org.example.dth.Request;
 import org.example.dth.Response;
+import org.example.dth.ResponseStatus;
 import org.example.util.Printable;
 
 import org.example.managers.ExecuteFileManager;
@@ -33,10 +34,10 @@ public class ExecuteScript extends Command {
     }
 
     @Override
-    public String execute(Request request) {
+    public Response execute(Request request) {
         if (request == null ) {
             console.printError("Путь не распознан");
-            return  ConsoleColor.RED+ "Путь не распознан";
+            return  new Response(ResponseStatus.ERROR,ConsoleColor.RED+ "Путь не распознан");
         }
         console.println(ConsoleColor.toColor("Путь получен успешно", ConsoleColor.PURPLE));
 
@@ -45,7 +46,7 @@ public class ExecuteScript extends Command {
         if (commandManager.isScriptRecursionExecuted() || (currentFile != null && scriptFile.getAbsolutePath()
                 .equals(currentFile.getAbsolutePath()))) {
             console.printError("Рекурсия скрипта уже выполнялась");
-            return  "Рекурсия скрипта уже выполнялась";
+            return  new Response(ResponseStatus.OK,"Рекурсия скрипта уже выполнялась");
         }
         commandManager.setScriptRecursionExecuted(true);
 
@@ -58,32 +59,32 @@ public class ExecuteScript extends Command {
                     if (request.getCommand().isBlank());
                     console.println(ConsoleColor.toColor("Выполнение команды " + cmd[0], ConsoleColor.YELLOW));
                     commandManager.execute(request);
-                    return  request.getCommand() + " " + request.getArg();
+                    return  new Response(ResponseStatus.ERROR, request.getCommand() + " " + request.getArg());
                 } catch (NoSuchElementException exception) {
                     console.printError("Пользовательский ввод не обнаружен!");
-                    return  ConsoleColor.RED+"Пользовательский вовд не обнаружен!";
+                    return new Response(ResponseStatus.EXIT,ConsoleColor.RED+"Пользовательский вовд не обнаружен!");
                 } catch (NoSuchCommand noSuchCommand) {
                     console.printError("Такой команды нет в списке");
-                    return  ConsoleColor.RED+"Такой команды нет в списке";
+                    return new Response(ResponseStatus.ERROR,ConsoleColor.RED+"Такой команды нет в списке");
                 } catch (IllegalArgumentException e) {
                     console.printError("Введены неправильные аргументы команды");
-                    return  ConsoleColor.RED+"Введены неправильные аргументы команды";
+                    return new Response(ResponseStatus.ERROR,ConsoleColor.RED+"Введены неправильные аргументы команды");
                 } catch (CommandRuntimeError e) {
                     console.printError("Ошибка при исполнении команды");
-                    return  ConsoleColor.RED+"Ошибка при исполнении команды";
+                    return  new Response(ResponseStatus.ERROR,ConsoleColor.RED+"Ошибка при исполнении команды");
                 } catch (ExitObliged e) {
                     throw new RuntimeException(e);
                 }
             }
         } catch (FileNotFoundException fileNotFoundException) {
             console.printError("Такого файла не существует");
-            return  ConsoleColor.RED+"Такого файла не существует";
+            return  new Response(ResponseStatus.ERROR,ConsoleColor.RED+"Такого файла не существует");
         } catch (IOException e) {
             console.printError("Ошибка ввода вывода");
-            return  ConsoleColor.RED+"Ошибка ввода вывода";
+            return  new Response(ResponseStatus.ERROR,ConsoleColor.RED+"Ошибка ввода вывода");
         } finally {
             commandManager.setScriptRecursionExecuted(false);
-            return  "все";
+            return  new Response(ResponseStatus.ERROR,"все");
         }
     }
 

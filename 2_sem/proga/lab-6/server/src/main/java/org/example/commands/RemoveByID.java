@@ -1,7 +1,8 @@
-package org.example.command.commands;
+package org.example.commands;
 
 import org.example.dth.Request;
 import org.example.dth.Response;
+import org.example.dth.ResponseStatus;
 import org.example.util.ConsoleColor;
 import org.example.util.Printable;
 
@@ -21,13 +22,13 @@ public class RemoveByID extends Command {
     }
 
     @Override
-    public String execute(Request request) {
+    public Response execute(Request request) {
         class NoSuchId extends RuntimeException {
         }
 
         if (collectionManager.getCollection() == null) {
             console.printError("Простите но коллекция пуста");
-            return  ConsoleColor.RED +"Простите но коллекция пуста";
+            return  new Response(ResponseStatus.ERROR,ConsoleColor.RED +"Простите но коллекция пуста");
         } else {
             try {
                 long id = Long.parseLong(request.getArg().trim());
@@ -35,16 +36,16 @@ public class RemoveByID extends Command {
                 collectionManager.removeByID(id);
                 String txt = "Удаление объекта с id = " + id + " завершено успешно...";
                 console.println(ConsoleColor.toColor(txt, ConsoleColor.CYAN));
-                return  ConsoleColor.toColor(txt, ConsoleColor.CYAN);
+                return  new Response(ResponseStatus.OK,ConsoleColor.toColor(txt, ConsoleColor.CYAN));
             } catch (NoSuchId idException) {
                 int id1 = Integer.parseInt(request.getArg().trim());
                 String txt = "Объекта с id " + id1 + " нет в коллекции. Введите элемент, ID котрого есть в коллекции, чтобы удалить его";
                 console.printError(txt);
-                return  ConsoleColor.toColor(txt, ConsoleColor.RED);
+                return  new Response(ResponseStatus.ERROR,ConsoleColor.toColor(txt, ConsoleColor.RED));
             } catch (NumberFormatException formatException) {
                 String txt = "Значение id должно быть типа int";
                 console.printError(txt);
-                return  txt;
+                return  new Response(ResponseStatus.ERROR, txt);
             }
 
         }
