@@ -1,5 +1,5 @@
 <org.example.managers.CollectionManager>
-  <lastInitDate>2024-05-25</lastInitDate>
+  <lastInitDate>2024-05-29</lastInitDate>
   <collection>
     <person>
       <id>1</id>
@@ -8,7 +8,7 @@
         <x>153</x>
         <y>-135.0</y>
       </coordinates>
-      <creationDate>2024-05-25</creationDate>
+      <creationDate>2024-05-29</creationDate>
       <height>13.0</height>
       <passportID>315</passportID>
       <hairColor>RED</hairColor>
@@ -26,7 +26,7 @@
         <x>124</x>
         <y>134.0</y>
       </coordinates>
-      <creationDate>2024-05-25</creationDate>
+      <creationDate>2024-05-29</creationDate>
       <height>135.0</height>
       <passportID>15413</passportID>
       <hairColor>RED</hairColor>
@@ -44,7 +44,7 @@
         <x>1425153</x>
         <y>1.23412341243214E14</y>
       </coordinates>
-      <creationDate>2024-05-25</creationDate>
+      <creationDate>2024-05-29</creationDate>
       <height>1.23412342E16</height>
       <passportID>1251234512451245145124541235123541234125</passportID>
       <hairColor>WHITE</hairColor>
@@ -62,7 +62,7 @@
         <x>71237423</x>
         <y>1.2341235125415354E27</y>
       </coordinates>
-      <creationDate>2024-05-25</creationDate>
+      <creationDate>2024-05-29</creationDate>
       <height>Infinity</height>
       <passportID></passportID>
       <hairColor>RED</hairColor>
@@ -80,7 +80,7 @@
         <x>1</x>
         <y>1.0</y>
       </coordinates>
-      <creationDate>2024-05-25</creationDate>
+      <creationDate>2024-05-29</creationDate>
       <height>1.0</height>
       <passportID>1</passportID>
       <hairColor>RED</hairColor>
@@ -98,7 +98,7 @@
         <x>1</x>
         <y>1.0</y>
       </coordinates>
-      <creationDate>2024-05-25</creationDate>
+      <creationDate>2024-05-29</creationDate>
       <height>1.0</height>
       <passportID>1</passportID>
       <hairColor>RED</hairColor>
@@ -116,7 +116,7 @@
         <x>1</x>
         <y>1.0</y>
       </coordinates>
-      <creationDate>2024-05-25</creationDate>
+      <creationDate>2024-05-29</creationDate>
       <height>1.0</height>
       <passportID>1</passportID>
       <hairColor>BLUE</hairColor>
