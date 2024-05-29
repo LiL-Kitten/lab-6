@@ -20,29 +20,31 @@ public class CommandManager {
     Console console = new Console();
     private final List<String> commandHistory = new ArrayList<>();
 
+
     private final HashMap<String, Command> commands = new HashMap<>();
     private boolean isScriptRecursionExecuted;
 
-    public CommandManager(Printable console, CollectionManager collectionManager, FileManager fileManager) {
+    public CommandManager( CollectionManager collectionManager, FileManager fileManager) {
         isScriptRecursionExecuted = false;
 
-        addCommand(new Add(console, collectionManager));
-        addCommand(new Help(console, this));
-        addCommand(new Exit());
-        addCommand(new Show(console, collectionManager));
-        addCommand(new RemoveHead(console, collectionManager));
-        addCommand(new RemoveByID(console, collectionManager));
-        addCommand(new RemoveElements(console, collectionManager));
-        addCommand(new PrintPassportID(console, collectionManager));
-        addCommand(new UpdateID(console, collectionManager));
-        addCommand(new History(console, this));
-        addCommand(new GroupByDate(console, collectionManager));
-        addCommand(new FilterByName(console, collectionManager));
-        addCommand(new Info(console, collectionManager));
-        addCommand(new Clear(console, collectionManager));
-        addCommand(new Save(console, fileManager, collectionManager));
+        addCommand(new Add(collectionManager));
+        addCommand(new Help(this));
+        addCommand(new Exit(fileManager, collectionManager));
+        addCommand(new Show(collectionManager));
+        addCommand(new RemoveHead(collectionManager));
+        addCommand(new RemoveByID(collectionManager));
+        addCommand(new RemoveElements( collectionManager));
+        addCommand(new PrintPassportID( collectionManager));
+        addCommand(new UpdateID( collectionManager));
+        addCommand(new History(this));
+        addCommand(new GroupByDate( collectionManager));
+        addCommand(new FilterByName( collectionManager));
+        addCommand(new Info( collectionManager));
+        addCommand(new Clear( collectionManager));
+        addCommand(new Save( fileManager, collectionManager));
         addCommand(new ExecuteScript(console, fileManager, this));
     }
+
     public boolean isScriptRecursionExecuted() {
         return isScriptRecursionExecuted;
     }
@@ -65,8 +67,9 @@ public class CommandManager {
         if (command == null) {
             return new Response(ResponseStatus.ERROR, "такой команды нет!");
         } else {
-            String txt = String.valueOf(command.execute(request));
-            return new Response(command.execute(request).getStatus(), txt);
+            Response response = command.execute(request);
+            String txt = String.valueOf(response);
+            return new Response(response.getStatus(), txt);
         }
     }
 
@@ -80,5 +83,6 @@ public class CommandManager {
     }
 
 
-
 }
+
+

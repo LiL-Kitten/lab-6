@@ -17,12 +17,12 @@ import java.util.Objects;
  * Removes all elements from the collection that are smaller than the specified one
  */
 public class RemoveElements extends Command {
-    private Printable console;
+
     private CollectionManager collectionManager;
 
-    public RemoveElements(Printable console, CollectionManager collectionManager) {
+    public RemoveElements(CollectionManager collectionManager) {
         super("remove_elements", ": удалить все элементы которые меньше заданного");
-        this.console = console;
+
         this.collectionManager = collectionManager;
 
     }
@@ -35,13 +35,8 @@ public class RemoveElements extends Command {
         try {
 
             if (collectionManager.getCollection() == null || collectionManager.getCollection().isEmpty()) {
-                String txt = "Невозномно выполнить удаление данного элемента т.к\nКоллекция пустая";
-                console.printError(txt);
-                return new Response(ResponseStatus.EXIT, txt);
+                return new Response(ResponseStatus.EXIT, "Невозномно выполнить удаление данного элемента т.к\nКоллекция пустая");
             }
-
-            console.println(ConsoleColor.toColor("Введите данные объекта Location, для того чтобы определить" +
-                    " центр и удалить элементы которые удалены от центра", ConsoleColor.CYAN));
             Location location = request.getObj().getLocation();
             Collection<Person> whatNeedRemove = collectionManager.getCollection().stream()
                     .filter(Objects::nonNull)
@@ -49,13 +44,9 @@ public class RemoveElements extends Command {
                     .toList();
 
             collectionManager.removeElements(whatNeedRemove);
-            String txt = "Из коллекции удалены элемены, меньше заданного";
-            console.println(ConsoleColor.toColor(txt, ConsoleColor.YELLOW));
             return new Response(ResponseStatus.OK,"Из коллекции удалены элемены, меньше заданного");
         } catch (NoElement e) {
-            String txt = "В коллекции нет элементов";
-            console.printError(txt);
-            return new Response(ResponseStatus.WRONG_ARGUMENTS,ConsoleColor.RED + txt);
+            return new Response(ResponseStatus.WRONG_ARGUMENTS,ConsoleColor.RED + "В коллекции нет элементов");
         }
     }
 

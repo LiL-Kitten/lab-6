@@ -8,13 +8,11 @@ import org.example.util.UserInput;
 
 /**
  * class for creating object Person and add some values from other forms
- */
-public class PersonForm extends Form<Person> {
-    private UserInput input = new InputManager();
-    private Person person;
-    private LocationForm location;
-    private CoordinatesForm coordinates;
+ */import java.util.Scanner;
+
+public class PersonForm extends Form { // Предположим, что здесь есть интерфейс
     private Printable console;
+    private static Scanner input = new Scanner(System.in);
 
     public PersonForm(Printable console) {
         this.console = console;
@@ -22,47 +20,43 @@ public class PersonForm extends Form<Person> {
 
     @Override
     public Person build() {
-        return person = new Person
-                (
-                        addName(),
-                        addCoordinates(),
-                        addHeight(),
-                        addPassportID(),
-                        addColorHair(),
-                        addNationality(),
-                        addLocation()
-                );
+        return new Person(
+                addName(),
+                addCoordinates(),
+                addHeight(),
+                addPassportID(),
+                addColorHair(),
+                addNationality(),
+                addLocation()
+        );
     }
 
     public Coordinates addCoordinates() {
-        coordinates = new CoordinatesForm(console);
+        CoordinatesForm coordinates = new CoordinatesForm(console);
         return coordinates.build();
     }
 
     public Location addLocation() {
-        location = new LocationForm(console);
+        LocationForm location = new LocationForm(console);
         return location.build();
     }
 
     public String addName() {
         while (true) {
             console.print(ConsoleColor.GREEN + "Введите имя" + ConsoleColor.RESET + ": ");
-            String name = input.next();
+            String name = input.nextLine().trim();
             if (name.isEmpty()) {
                 console.printError("Простите, но название не может быть пустым!");
-            } else return name;
+            } else {
+                return name;
+            }
         }
     }
 
-    /**
-     * add weight
-     *
-     * @return Float weight
-     */
     public Float addHeight() {
         while (true) {
             console.print(ConsoleColor.GREEN + "Введите вес" + ConsoleColor.RESET + ": ");
-            String txtHeight = input.next();
+            String txtHeight = input.nextLine().trim();
             try {
                 float height = Float.parseFloat(txtHeight);
                 if (height < 0) {
@@ -79,39 +73,33 @@ public class PersonForm extends Form<Person> {
 
     public String addPassportID() {
         console.print(ConsoleColor.GREEN + "Введите" + ConsoleColor.PURPLE + " passport ID" + ConsoleColor.RESET + ": ");
-        return input.next();
+        return input.nextLine().trim();
     }
-
 
     public Color addColorHair() throws IllegalArgumentException {
         while (true) {
             console.print(Color.colors() + ConsoleColor.GREEN + "Выберете один из указанных ранее цветов" + ConsoleColor.RESET + ": ");
-            String txt = input.next().toUpperCase();
-            try {
-                Color color = Color.valueOf(txt);
-                return color;
-            } catch (IllegalArgumentException e)
-            {
-                console.printError("Вы указали что то не из списка =(\"");
-            }
+            String txt =
+input.nextLine().trim().toUpperCase();
+        try {
+        return Color.valueOf(txt);
+        } catch (IllegalArgumentException e) {
+        console.printError("Вы указали что-то не из списка =(");
         }
-    }
+        }
+        }
 
-    public Country addNationality() throws IllegalArgumentException {
+public Country addNationality() throws IllegalArgumentException {
         while (true) {
-            console.print(ConsoleColor.CYAN + Country.countries() + ConsoleColor.GREEN + "Введите одну из указанных ранее " + ConsoleColor.PURPLE + "национальностей" + ConsoleColor.RESET + ": ");
-            String countryInput = input.next().toUpperCase();
-            try {
-                Country country = Country.valueOf(countryInput);
-                return country;
-            } catch (IllegalArgumentException e) {
-                console.printError("Вы указали что то не из списка =(");
-            }
+        console.print(ConsoleColor.CYAN + Country.countries() + ConsoleColor.GREEN + "Введите одну из указанных ранее " + ConsoleColor.PURPLE + "национальностей" + ConsoleColor.RESET + ": ");
+        String countryInput = input.nextLine().trim().toUpperCase();
+        try {
+        return Country.valueOf(countryInput);
+        } catch (IllegalArgumentException e) {
+        console.printError("Вы указали что-то не из списка =(");
         }
-    }
-
-
-}
-
+        }
+        }
+        }
 
 

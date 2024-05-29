@@ -1,15 +1,14 @@
 <org.example.managers.CollectionManager>
-  <lastInitDate>2024-05-23</lastInitDate>
-  <lastSaveDate>2024-05-23</lastSaveDate>
+  <lastInitDate>2024-05-25</lastInitDate>
   <collection>
     <person>
-      <id>3</id>
+      <id>1</id>
       <name>143</name>
       <coordinates>
         <x>153</x>
         <y>-135.0</y>
       </coordinates>
-      <creationDate>2024-05-23</creationDate>
+      <creationDate>2024-05-25</creationDate>
       <height>13.0</height>
       <passportID>315</passportID>
       <hairColor>RED</hairColor>
@@ -21,13 +20,13 @@
       </location>
     </person>
     <person>
-      <id>4</id>
+      <id>2</id>
       <name>124214</name>
       <coordinates>
         <x>124</x>
         <y>134.0</y>
       </coordinates>
-      <creationDate>2024-05-23</creationDate>
+      <creationDate>2024-05-25</creationDate>
       <height>135.0</height>
       <passportID>15413</passportID>
       <hairColor>RED</hairColor>
@@ -39,13 +38,13 @@
       </location>
     </person>
     <person>
-      <id>5</id>
+      <id>3</id>
       <name>1</name>
       <coordinates>
         <x>1425153</x>
         <y>1.23412341243214E14</y>
       </coordinates>
-      <creationDate>2024-05-23</creationDate>
+      <creationDate>2024-05-25</creationDate>
       <height>1.23412342E16</height>
       <passportID>1251234512451245145124541235123541234125</passportID>
       <hairColor>WHITE</hairColor>
@@ -57,13 +56,13 @@
       </location>
     </person>
     <person>
-      <id>6</id>
+      <id>4</id>
       <name>w</name>
       <coordinates>
         <x>71237423</x>
         <y>1.2341235125415354E27</y>
       </coordinates>
-      <creationDate>2024-05-23</creationDate>
+      <creationDate>2024-05-25</creationDate>
       <height>Infinity</height>
       <passportID></passportID>
       <hairColor>RED</hairColor>
@@ -72,6 +71,60 @@
         <x>2.345243568359326E37</x>
         <y>1</y>
         <name>e</name>
+      </location>
+    </person>
+    <person>
+      <id>5</id>
+      <name>1</name>
+      <coordinates>
+        <x>1</x>
+        <y>1.0</y>
+      </coordinates>
+      <creationDate>2024-05-25</creationDate>
+      <height>1.0</height>
+      <passportID>1</passportID>
+      <hairColor>RED</hairColor>
+      <nationality>RUSSIA</nationality>
+      <location>
+        <x>1.0</x>
+        <y>1</y>
+        <name>1</name>
+      </location>
+    </person>
+    <person>
+      <id>6</id>
+      <name>1</name>
+      <coordinates>
+        <x>1</x>
+        <y>1.0</y>
+      </coordinates>
+      <creationDate>2024-05-25</creationDate>
+      <height>1.0</height>
+      <passportID>1</passportID>
+      <hairColor>RED</hairColor>
+      <nationality>RUSSIA</nationality>
+      <location>
+        <x>1.0</x>
+        <y>1</y>
+        <name>1</name>
+      </location>
+    </person>
+    <person>
+      <id>7</id>
+      <name>1</name>
+      <coordinates>
+        <x>1</x>
+        <y>1.0</y>
+      </coordinates>
+      <creationDate>2024-05-25</creationDate>
+      <height>1.0</height>
+      <passportID>1</passportID>
+      <hairColor>BLUE</hairColor>
+      <nationality>SPAIN</nationality>
+      <location>
+        <x>1.0</x>
+        <y>1</y>
+        <name>1</name>
       </location>
     </person>
   </collection>

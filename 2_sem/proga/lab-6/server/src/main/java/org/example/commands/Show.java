@@ -13,12 +13,11 @@ import java.util.stream.Collectors;
  * print in standard output all collection elements
  */
 public class Show extends Command {
-    private Printable console;
+
     private CollectionManager collectionManager;
 
-    public Show(Printable console, CollectionManager collectionManager) {
+    public Show(CollectionManager collectionManager) {
         super("show", ": выводит в стандартный поток вывода все элементы коллекции в строковом представлении");
-        this.console = console;
         this.collectionManager = collectionManager;
     }
 
@@ -26,9 +25,9 @@ public class Show extends Command {
     public Response execute(Request request) {
         var collection = collectionManager.getCollection();
         if (collection == null) {
-            return new Response(ResponseStatus.ERROR,ConsoleColor.RED +"Коллекция не инициализирована");
+            return new Response(ResponseStatus.ERROR, ConsoleColor.RED + "Коллекция не инициализирована");
         } else if (collection.isEmpty()) {
-            return new Response(ResponseStatus.OK,ConsoleColor.YELLOW + "Коллекция пустая");
+            return new Response(ResponseStatus.OK, ConsoleColor.YELLOW + "Коллекция пустая");
         } else {
             return new Response(ResponseStatus.OK, collection.stream()
                     .map(Object::toString)

@@ -1,4 +1,4 @@
-package org.example.exceptions;
+package org.example.util;
 
 public class ExceptionInFileMode extends RuntimeException {
     private String message;

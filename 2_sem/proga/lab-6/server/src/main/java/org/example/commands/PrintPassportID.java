@@ -17,12 +17,12 @@ import java.util.stream.Collectors;
  * displays the passportID field values ​​of all elements in descending order
  */
 public class PrintPassportID extends Command {
-    private Printable console;
+
     private CollectionManager collectionManager;
 
-    public PrintPassportID(Printable console, CollectionManager collectionManager) {
+    public PrintPassportID(CollectionManager collectionManager) {
         super("print_passport_id", ": выводит все значения passportID всех элементов в порядке убывания");
-        this.console = console;
+
         this.collectionManager = collectionManager;
     }
 
@@ -31,17 +31,15 @@ public class PrintPassportID extends Command {
 
         if (collectionManager.getCollection() == null || collectionManager.getCollection().isEmpty()) {
             String txt = "Коллекция пустая, нечего выводить";
-            console.printError(txt);
-            return new Response(ResponseStatus.ERROR,ConsoleColor.RED + txt);
+            return new Response(ResponseStatus.ERROR, ConsoleColor.RED + txt);
         }
         String txt = collectionManager.getCollection().stream()
                 .filter(Objects::nonNull)
                 .sorted(Comparator.comparing(Person::getPassportID).reversed())
                 .map(Person::getPassportID)
                 .collect(Collectors.joining("\n"));
-        console.println(txt);
 
-        return new Response(ResponseStatus.OK,txt);
+        return new Response(ResponseStatus.OK, txt);
             /*
             List<Person> sortedList = collectionManager.getCollection().stream()
                     .filter(Objects::nonNull)

@@ -24,14 +24,12 @@ public class RuntimeManager {
         this.console = console;
         CollectionManager collectionManager = new CollectionManager();
         fileManager = new FileManager(console, collectionManager);
-        commandManager = new CommandManager(console, collectionManager, fileManager);
+        commandManager = new CommandManager(collectionManager, fileManager);
     }
 
     public Response interactiveMode(Request request) throws RuntimeException {
         try {
             commandManager.addToHistory(request.getCommand());
-            this.launch(request);
-            // Успешное выполнение команды
             return this.launch(request);
         } catch (NoSuchElementException exception) {
             console.printError("Пользовательский ввод не обнаружен!");

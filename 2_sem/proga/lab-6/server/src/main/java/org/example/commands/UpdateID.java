@@ -12,13 +12,11 @@ import org.example.managers.CollectionManager;
  * update value collection element id Обновляет
  */
 public class UpdateID extends Command {
-    private Printable console;
     private CollectionManager collectionManager;
 
-    public UpdateID(Printable console, CollectionManager collectionManager) {
+    public UpdateID(CollectionManager collectionManager) {
         super("update_id", " {element}: обновить значение элемента коллекции, id которого равен заданному");
         this.collectionManager = collectionManager;
-        this.console = console;
     }
 
     @Override
@@ -26,24 +24,17 @@ public class UpdateID extends Command {
         try {
             long id = Long.parseLong(request.getArg().trim());
             if (!collectionManager.checkID(id)) throw new NoSuchId();
-
-            console.println(ConsoleColor.toColor("Введите новое значение id для объекта Person...", ConsoleColor.CYAN));
-
             long newId = 10;
-
             collectionManager.updateId(id, newId);
             String txt = "Изменение id объекта Person успешно";
-            console.println(ConsoleColor.toColor(txt, ConsoleColor.CYAN));
-            return new Response(ResponseStatus.OK,"Изменение id объекта Person успешно");
+            return new Response(ResponseStatus.OK, "Изменение id объекта Person успешно");
         } catch (NoSuchId noSuchId) {
             long id = Long.parseLong(request.getArg().trim());
             String txt = "Объекта с id " + id + " нет в коллекции. Введите верный id, чтобы изменить объект...";
-            console.printError(txt);
-            return new Response(ResponseStatus.ERROR,ConsoleColor.RED + "Объекта с id " + id + " нет в коллекции. Введите верный id, чтобы изменить объект...");
+            return new Response(ResponseStatus.ERROR, ConsoleColor.RED + "Объекта с id " + id + " нет в коллекции. Введите верный id, чтобы изменить объект...");
         } catch (NumberFormatException formatException) {
             String txt = "id должно быть числом типа long";
-            console.printError(txt);
-            return new Response(ResponseStatus.ERROR,ConsoleColor.RED + "id должно быть числом типа long");
+            return new Response(ResponseStatus.ERROR, ConsoleColor.RED + "id должно быть числом типа long");
         }
     }
 

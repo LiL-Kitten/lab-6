@@ -70,7 +70,7 @@ public class LocationForm extends Form<Location> {
     public String addName() throws IllegalArgumentException {
         while (true) {
             console.print(ConsoleColor.GREEN + "Введите название " + ConsoleColor.PURPLE + "локации" + ConsoleColor.RESET + ": ");
-            String nameLocation = input.next();
+            String nameLocation = input.nextLine().trim();
             if (nameLocation.isEmpty()) {
                 console.printError("Простите, но название не может быть пустым!");
             } else return nameLocation;

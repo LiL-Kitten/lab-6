@@ -13,24 +13,23 @@ import java.util.stream.Collectors;
  * prints all elements and values of the name field that begin with the given substring
  */
 public class FilterByName extends Command {
-    private Printable console;
+
     private CollectionManager collectionManager;
 
-    public FilterByName(Printable console, CollectionManager collectionManager) {
+    public FilterByName(CollectionManager collectionManager) {
         super("filter_by_name", ": вывести элементы, значение  поля name которых начинается с заданной подстроки");
-        this.console = console;
+
         this.collectionManager = collectionManager;
     }
 
     @Override
     public Response execute(Request request) {
         if (collectionManager.getCollection().isEmpty()) {
-            return  new Response(ResponseStatus.ERROR,ConsoleColor.RED + "Коллекци пустая =(");
+            return new Response(ResponseStatus.ERROR, ConsoleColor.RED + "Коллекци пустая =(");
         }
 
         if (request == null) {
-            console.printError("Не указана подстрока для фильтрации.");
-            return  new Response(ResponseStatus.ERROR,ConsoleColor.RED + "Не указана подстрока для фильтрации.");
+            return new Response(ResponseStatus.ERROR, ConsoleColor.RED + "Не указана подстрока для фильтрации.");
         }
 
         String namePrefix = request.getArg().trim();
@@ -38,8 +37,7 @@ public class FilterByName extends Command {
                 .filter(person -> person.getName().startsWith(namePrefix))
                 .map(person -> "Результат фильтрации:\n" + person)
                 .collect(Collectors.joining("\n"));
-        console.println(txt);
-        return  new Response(ResponseStatus.OK,txt);
+        return new Response(ResponseStatus.OK, txt);
     }
 
 }

@@ -10,15 +10,13 @@ import org.example.util.RequestHandler;
 import org.example.util.Server;
 
 import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
 
 public class App {
     public static void main(String[] args) throws IOException, ExitObliged {
         Console console = new Console();
         RuntimeManager runtimeManager = new RuntimeManager(console);
         RequestHandler requestHandler = new RequestHandler(runtimeManager);
-        Server server = new Server(1050, requestHandler);
+        Server server = new Server(6087, requestHandler);
         server.run();
     }
 }

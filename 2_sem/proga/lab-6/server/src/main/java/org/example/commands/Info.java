@@ -12,12 +12,10 @@ import org.example.managers.CollectionManager;
  * Prints information about the collection (type, initialization date, number of elements, etc.) to the standard output stream.
  */
 public class Info extends Command {
-    private Printable console;
     private CollectionManager collectionManager;
 
-    public Info(Printable console, CollectionManager collectionManager) {
+    public Info(CollectionManager collectionManager) {
         super("info", ": вывести в стандартный поток вывода информацию о коллекции");
-        this.console = console;
         this.collectionManager = collectionManager;
     }
 
@@ -35,7 +33,6 @@ public class Info extends Command {
                 .append(ConsoleColor.toColor("Количество элементов: ", ConsoleColor.BLUE) + collectionManager.collectionSize() + "\n")
                 .append(ConsoleColor.toColor("Дата последней инициализации: ", ConsoleColor.BLUE) + lastInitDate + "\n")
                 .append(ConsoleColor.toColor("Дата последней изменения: ", ConsoleColor.BLUE) + lastSaveDate + "\n");
-        console.print(stringBuilder.toString());
-        return new Response(ResponseStatus.OK,stringBuilder.toString());
+        return new Response(ResponseStatus.OK, stringBuilder.toString());
     }
 }

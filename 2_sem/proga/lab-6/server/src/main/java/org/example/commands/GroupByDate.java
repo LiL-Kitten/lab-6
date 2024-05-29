@@ -14,12 +14,12 @@ import java.util.stream.Collectors;
  * groups collection elements by the value of the creationDate field, display the number of elements in each group
  */
 public class GroupByDate extends Command {
-    private Printable console;
+
     private CollectionManager collectionManager;
 
-    public GroupByDate(Printable console, CollectionManager collectionManager) {
+    public GroupByDate(CollectionManager collectionManager) {
         super("group_by_date", ": сгруппировать элементы коллекции по значению поля creationDate, выводит количество элементов в каждой группе");
-        this.console = console;
+
         this.collectionManager = collectionManager;
     }
 
@@ -31,7 +31,6 @@ public class GroupByDate extends Command {
                 .map(entry -> entry.getKey() + ": " + entry.getValue())
                 .collect(Collectors.joining("\n"));
 
-        console.println(ConsoleColor.BLUE + "Группировка по дате создания:" + txt);
         return new Response(ResponseStatus.OK,ConsoleColor.BLUE+"Группировка по дате создания: "+ txt);
 
     }

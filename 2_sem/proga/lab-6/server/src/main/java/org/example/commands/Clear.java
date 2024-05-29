@@ -14,12 +14,11 @@ import org.example.managers.CollectionManager;
  * Clear collection
  */
 public class Clear extends Command {
-    private Printable console;
+
     private CollectionManager collectionManager;
 
-    public Clear(Printable console, CollectionManager collectionManager) {
+    public Clear(CollectionManager collectionManager) {
         super("clear", ": очистить коллекцию");
-        this.console = console;
         this.collectionManager = collectionManager;
     }
 
@@ -32,14 +31,12 @@ public class Clear extends Command {
      */
     @Override
     public Response execute(Request request) {
-           try {
-               collectionManager.clear();
-               console.println("Элементы удалены");
-               return new Response(ResponseStatus.OK,ConsoleColor.BLUE + "Элементы удалены");
-           } catch (EmptyCollectionException e) {
-               console.printError("Коллекция пуста");
-               return new Response(ResponseStatus.ERROR, ConsoleColor.RED + "Коллекция пуста");
-           }
+        try {
+            collectionManager.clear();
+            return new Response(ResponseStatus.OK, ConsoleColor.BLUE + "Элементы удалены");
+        } catch (EmptyCollectionException e) {
+            return new Response(ResponseStatus.ERROR, ConsoleColor.RED + "Коллекция пуста");
+        }
 
     }
 }

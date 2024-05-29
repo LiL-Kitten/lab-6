@@ -19,13 +19,13 @@ import java.util.Objects;
  */
 
 public class Add extends Command {
-    private Printable console;
+
     private CollectionManager collectionManager;
 
 
-    public Add(Printable console, CollectionManager collectionManager) {
+    public Add(CollectionManager collectionManager) {
         super("add", " {element} добавить новый элемент в коллекцию");
-        this.console = console;
+
         this.collectionManager = collectionManager;
     }
 
@@ -36,14 +36,14 @@ public class Add extends Command {
      */
     @Override
     public Response execute(Request request) {
-        if (!request.getArg().isBlank());
-        if (Objects.isNull(request.getObj())){
+        if (request.getObj() == null) {
             return new Response(ResponseStatus.ASK_OBJECT, "Для команды " + this.getName() + " требуется объект");
-        } else{
+        } else {
             request.getObj().setID(CollectionManager.getNextID());
             collectionManager.addElement(request.getObj());
             return new Response(ResponseStatus.OK, "Объект успешно добавлен");
         }
     }
+
 }
 

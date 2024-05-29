@@ -36,7 +36,6 @@ public class ExecuteScript extends Command {
     @Override
     public Response execute(Request request) {
         if (request == null ) {
-            console.printError("Путь не распознан");
             return  new Response(ResponseStatus.ERROR,ConsoleColor.RED+ "Путь не распознан");
         }
         console.println(ConsoleColor.toColor("Путь получен успешно", ConsoleColor.PURPLE));
@@ -45,7 +44,6 @@ public class ExecuteScript extends Command {
         File currentFile = executeFileManager.getCurrentFile();
         if (commandManager.isScriptRecursionExecuted() || (currentFile != null && scriptFile.getAbsolutePath()
                 .equals(currentFile.getAbsolutePath()))) {
-            console.printError("Рекурсия скрипта уже выполнялась");
             return  new Response(ResponseStatus.OK,"Рекурсия скрипта уже выполнялась");
         }
         commandManager.setScriptRecursionExecuted(true);

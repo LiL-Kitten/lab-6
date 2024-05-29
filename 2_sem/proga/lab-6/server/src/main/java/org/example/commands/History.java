@@ -14,13 +14,10 @@ import java.util.stream.Collectors;
  * prints the last 5 commands (without their arguments)
  */
 public class History extends Command {
-    private Printable console;
-
     private CommandManager commandManager;
 
-    public History(Printable console, CommandManager commandManager) {
+    public History(CommandManager commandManager) {
         super("history", ": выводит последние 5 команд (без их аргументов)");
-        this.console = console;
         this.commandManager = commandManager;
     }
 
@@ -33,14 +30,6 @@ public class History extends Command {
                 .map(command -> ConsoleColor.toColor(command, ConsoleColor.CYAN))
                 .collect(Collectors.joining("\n"));
 
-        console.println(txt);
-
-        return new Response(ResponseStatus.OK,txt);
-
-        /*
-        for (String command : history.subList(Math.max(history.size() - 5, 0), history.size())) {
-            console.println(ConsoleColor.toColor(command, ConsoleColor.CYAN));
-        }
-        */
+        return new Response(ResponseStatus.OK, txt);
     }
 }

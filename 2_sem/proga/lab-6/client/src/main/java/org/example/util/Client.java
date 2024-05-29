@@ -29,27 +29,39 @@ public class Client {
     }
 
     public void createSocket() {
-        console.println("Введите хост и порт " + ConsoleColor.BLUE + "(в формате: host port)" + ConsoleColor.RESET);
-        String text = scanner.getInput().nextLine().trim();
-        String[] tokens = text.split("\\s+", 2);
-        System.out.println(tokens.length);
-        this.host = tokens[0];
-        try{
+        boolean condition = false;
+        while (!condition) {
+            console.println("Введите хост и порт " + ConsoleColor.BLUE + "(в формате: host port)" + ConsoleColor.RESET);
+            String text = scanner.getInput().nextLine().trim();
+            String[] tokens = text.split("\\s+", 2);
 
-            this.port = Integer.parseInt(tokens[1].trim());
-            console.println(ConsoleColor.GREEN+"сокет сформирован"+ConsoleColor.RESET);
-        } catch (NoSuchElementException e){
-            console.printError("Неправильный формат порта! Порт должен быть числом.");
-        }
+            if (tokens.length < 2) {
+                console.printError("Неправильный формат ввода! Введите хост и порт в формате: host port");
+                continue;
+            }
 
-        try {
-            socket = new DatagramSocket();
-                    socket.connect(InetAddress.getByName(host), port);
-        } catch (UnknownHostException e) {
-            console.printError("проблемки с хостом");
-        } catch (SocketException e) {
-            throw new RuntimeException(e);
+            this.host = tokens[0];
+
+            try {
+                this.port = Integer.parseInt(tokens[1].trim());
+            } catch (NumberFormatException e) {
+                console.printError("Неправильный формат порта! Порт должен быть числом.");
+                continue;
+            }
+
+            try {
+                socket = new DatagramSocket();
+                socket.connect(InetAddress.getByName(host), port);
+                condition = true;
+            } catch (UnknownHostException e) {
+                console.printError("Проблемы с хостом. Пожалуйста, попробуйте снова.");
+            } catch (SocketException e) {
+                console.printError("Ошибка создания сокета: " + e.getMessage());
+            } catch (IllegalArgumentException e) {
+                console.printError("Вы ввели неверный порт. Пожалуйста, попробуйте снова.");
+            }
         }
+        console.println(ConsoleColor.GREEN + "сокет сформирован" + ConsoleColor.RESET);
     }
 
 
@@ -123,5 +135,8 @@ public class Client {
             e.printStackTrace();
         }
     }
-
+    public void closeConnection()
+    {
+        socket.close();
+    }
 }
