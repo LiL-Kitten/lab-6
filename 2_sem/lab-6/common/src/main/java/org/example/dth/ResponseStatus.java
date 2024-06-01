@@ -9,5 +9,4 @@ public enum ResponseStatus implements Serializable {
     EXIT,
     ERROR,
     WRONG_ARGUMENTS,
-    EXECUTE_SCRIPT
 }

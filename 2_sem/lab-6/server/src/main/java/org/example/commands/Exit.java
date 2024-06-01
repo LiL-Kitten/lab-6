@@ -21,6 +21,7 @@ public class Exit extends Command {
     public Response execute(Request request) {
         fileManager.save();
         collectionManager.setLastSaveDate();
-        return new Response(ResponseStatus.EXIT,"Дотвидания =( \n все сохранилось))");
+        console.println("Дотвидания =( \n все сохранилось))");
+        return new Response(ResponseStatus.EXIT,"все сохранилось))");
     }
 }

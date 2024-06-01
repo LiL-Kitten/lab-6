@@ -42,6 +42,7 @@ public class ExecuteScript extends Command {
 
         while (executeFileManager.hasElements()) {
             run.processResponse( client.sendAndAskResponse(new Request(executeFileManager.getNextElement())));
+
         }
     }
 }

@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Comparator;
 
 public class Response implements Serializable {
+    private static final long serialVersionUID = 123456789L;
     private String answer;
     private String args;
     private Collection<Person> collection;

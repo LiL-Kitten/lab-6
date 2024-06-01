@@ -5,16 +5,9 @@ import org.example.dth.Response;
 import org.example.dth.ResponseStatus;
 import org.example.util.Printable;
 
-import org.example.managers.ExecuteFileManager;
-import org.example.util.ConsoleColor;
-import org.example.exceptions.CommandRuntimeError;
-import org.example.exceptions.ExitObliged;
-import org.example.exceptions.NoSuchCommand;
 import org.example.managers.CommandManager;
 import org.example.managers.FileManager;
 
-import java.io.*;
-import java.util.NoSuchElementException;
 
 /**
  * One of the most steamy commands, necessary to read and execute a script from the specified file
@@ -24,7 +17,6 @@ public class ExecuteScript extends Command {
     private Printable console;
     private CommandManager commandManager;
     private FileManager fileManager;
-    private ExecuteFileManager executeFileManager;
 
     public ExecuteScript(Printable console, FileManager fileManager, CommandManager commandManager) {
         super("execute_script", ": считать и исполнить скрипт из указанного файла");
@@ -35,7 +27,7 @@ public class ExecuteScript extends Command {
 
     @Override
     public Response execute(Request request) {
-            return  new Response(ResponseStatus.OK,"Рекурсия скрипта выполнялась");
+        return  new Response(ResponseStatus.OK,"Рекурсия скрипта выполнялась");
     }
 
 }

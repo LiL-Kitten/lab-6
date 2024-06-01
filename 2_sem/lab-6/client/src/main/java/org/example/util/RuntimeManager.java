@@ -7,10 +7,9 @@ import org.example.dth.Request;
 import org.example.dth.Response;
 import org.example.forms.PersonForm;
 
-import java.net.UnknownHostException;
 import java.util.NoSuchElementException;
 
-public class RuntimeManager { //пользователь и сервер
+public class RuntimeManager {
     private static Printable console;
     private InputManager inputManager;
     private Client client;
@@ -23,13 +22,12 @@ public class RuntimeManager { //пользователь и сервер
         RuntimeManager.console = console;
         this.client = client;
         this.inputManager = inputManager;
-        this.exit = new Exit(console, client);
+        this.exit = new Exit(console, client, this);
         this.executeScript = new ExecuteScript(console, client, this);
 
     }
 
-
-    public void run() {//ожидание ввода от пользователя, отправка его на сервер
+    public void run() {
         client.createSocket();
 
         while (true) {
@@ -37,10 +35,10 @@ public class RuntimeManager { //пользователь и сервер
                 inputManager.commandInput();
 
                 if (inputManager.getCommand().equalsIgnoreCase("exit")) {
-                    client.sendAndAskResponse(new Request("exit"));
                     exit.execute(inputManager.getArgument());
                 } else if (inputManager.getCommand().equalsIgnoreCase("execute_script")) {
                     executeScript.execute(inputManager.getArgument());
+                    continue;
                 } else {
                     try {
                         response = client.sendAndAskResponse(new Request(inputManager.getCommand(), inputManager.getArgument()));
@@ -53,10 +51,9 @@ public class RuntimeManager { //пользователь и сервер
 
             } catch (NoSuchElementException exception) {
                 console.printError("Пользовательский ввод не обнаружен!");
+            } catch (Exception e) {
+                console.printError("Произошла ошибка: " + e.getMessage());
             }
-//            catch (Exception e) {
-//                console.printError("Произошла ошибка: " + e.getMessage());
-//            }
         }
     }
 
@@ -65,8 +62,6 @@ public class RuntimeManager { //пользователь и сервер
             this.printResponse(response);
 
             switch (response.getStatus()) {
-                default:
-                    console.printError("Неизвестный статус ответа: " + response.getStatus());
                 case ASK_OBJECT:
                     Person person = new PersonForm(console).build();
                     if (!person.validate()) {
@@ -74,24 +69,19 @@ public class RuntimeManager { //пользователь и сервер
                         return;
                     }
 
-                    Response newResponse;
-                    try {
-                        newResponse = client.sendAndAskResponse(new Request(inputManager.getCommand(), person));
-                    } catch (Exception e) {
-                        console.printError("Ошибка при отправке запроса с объектом: " + e.getMessage());
-                        return;
-                    }
+                    client.sendAndAskResponse(new Request("add",person));
 
-                    if (newResponse != null) {
-                        this.printResponse(newResponse);
-                    }
-                    break;
                 case OK:
-                    console.println(ConsoleColor.toColor("Все ОК!", ConsoleColor.GREEN));
                     break;
                 case ERROR:
                     console.printError(response.getResponse());
                     break;
+                case EXIT:
+                    console.println(response.getResponse());
+                    break;
+                default:
+                    console.printError("Неизвестный статус ответа: " + response.getStatus());
+
 
             }
         }
@@ -102,11 +92,7 @@ public class RuntimeManager { //пользователь и сервер
             console.printError("Не удалось получить ответ от сервера.");
             return;
         }
-        console.println("Получен ответ с статусом: " + response.getStatus());
-        console.println("Сообщение: " + response.getResponse());
-    }
-
-
-    private void fileExecution(String args) {
+        console.println(ConsoleColor.BLUE + "Получен ответ с статусом: " + ConsoleColor.RESET + response.getStatus());
+        console.println(ConsoleColor.BLUE + "Сообщение: \n" + ConsoleColor.RESET + response.getResponse());
     }
 }

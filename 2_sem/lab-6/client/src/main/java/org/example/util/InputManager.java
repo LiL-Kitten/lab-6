@@ -26,5 +26,4 @@ public class InputManager {
     public String getArgument() {
         return argument;
     }
-
 }

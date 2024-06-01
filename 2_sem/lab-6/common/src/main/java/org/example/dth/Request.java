@@ -6,9 +6,15 @@ import java.io.Serializable;
 
 public class Request implements Serializable
 {
+    private static final long serialVersionUID = 8877794645528610544L;
     private String command;
     private String arg;
+
     private Person person;
+
+    public Request(Person person) {
+        this.person = person;
+    }
 
     public Request(String command, String arg) {
         this.command = command.trim();

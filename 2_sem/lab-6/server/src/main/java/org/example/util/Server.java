@@ -23,13 +23,11 @@ public class Server {
     private RequestHandler requestHandler;
     private DatagramChannel datagramChannel;
     private final Logger logger = Logger.getLogger(Server.class.getName());
-    private ExecutorService executorService;
 
     public Server(int port, RequestHandler handler) {
 
         this.port = port;
         this.requestHandler = handler;
-        this.executorService = Executors.newCachedThreadPool(); // Создание пула потоков
     }
 
     public void run() {
@@ -61,8 +59,7 @@ public class Server {
             buffer.flip();
             logger.info("Получен запрос от клиента по адресу " + clientAddress);
 
-            // Отправка задачи в пул потоков
-            executorService.submit(() -> handleRequest(buffer, clientAddress));
+             handleRequest(buffer, clientAddress);
         }
     }
 
